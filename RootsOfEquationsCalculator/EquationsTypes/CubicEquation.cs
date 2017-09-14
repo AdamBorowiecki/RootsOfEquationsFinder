@@ -13,7 +13,7 @@ namespace RootsOfEquationsCalculator.EquationsTypes
             double d//constantNumberLeftOfEquation
             )//equation format: ax3 + bx2 + cx + d ,  a ≠ 0
         {
-            if(a == 0)
+            if(Math.Abs(a) < double.Epsilon)
             {
                 throw new ArgumentException(
                     $"{nameof(a)} has value = {a} - it is not cubic equation");
@@ -28,11 +28,11 @@ namespace RootsOfEquationsCalculator.EquationsTypes
                 (Math.Pow(g, 2) / 4) +
                 (Math.Pow(f, 3) / 27);
 
-            if(h > 0)
+            if(h >= double.Epsilon)
             {
                 return Operations.Round(OnlyOneRoot(a, b, g, h));
             }
-            else if(f == 0 && g == 0)
+            else if(Math.Abs(f) < double.Epsilon && Math.Abs(g) < double.Epsilon)
             {
                 return Operations.Round(TripleRoot(a, d));
             }

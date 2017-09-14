@@ -42,7 +42,7 @@
   <ItemGroup>
     <Compile Include="EquationsTypes\LinearEquationWithOneUnknown.cs" />
     <Compile Include="EquationsTypes\CubicEquation.cs" />
-    <Compile Include="Operations.cs" />
+    <Compile Include="Mathematic\Operations.cs" />
     <Compile Include="Mathematic\Constants.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResultInformation.cs" />
