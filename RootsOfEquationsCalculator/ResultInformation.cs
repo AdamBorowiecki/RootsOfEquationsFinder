@@ -2,7 +2,7 @@
 {
     public enum RootInformation
     {
-        NoRoots = 0,
+        NotRoots = 0,
         InfinitelyManySolutions = 1,
     }
 }

@@ -19,7 +19,7 @@ namespace RootsOfEquationsCalculator.Tests
                 LinearEquationWithOneUnknown.CalculateRoots(0.0, 5.0, 5.0));
 
             RootInformation equationHasNotRoot =
-                RootInformation.NoRoots;
+                RootInformation.NotRoots;
             Assert.Equal(
                 equationHasNotRoot,
                 LinearEquationWithOneUnknown.CalculateRoots(0.0, 5.0, 2.0));

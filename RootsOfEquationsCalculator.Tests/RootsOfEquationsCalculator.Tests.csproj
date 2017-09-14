@@ -57,6 +57,7 @@
   <ItemGroup>
     <Compile Include="LinearEquationWithOneUnknownTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CubicEquationTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

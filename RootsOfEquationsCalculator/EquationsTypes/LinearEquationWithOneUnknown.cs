@@ -18,7 +18,7 @@
 
             if (factorAtUnknown.Equals(0.0))
             {
-                return RootInformation.NoRoots;
+                return RootInformation.NotRoots;
             }
 
             return constValuesSum / factorAtUnknown;
