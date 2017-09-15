@@ -17,7 +17,7 @@
                 return RootInformation.NoRealSolutions;
             }
 
-            return b / a;
+            return - b / a;
         }
     }
 }
