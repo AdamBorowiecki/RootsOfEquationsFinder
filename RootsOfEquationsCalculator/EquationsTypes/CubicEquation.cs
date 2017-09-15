@@ -7,10 +7,10 @@ namespace RootsOfEquationsCalculator.EquationsTypes
     public static class CubicEquation
     {
         public static object CalculateRoots(
-            double a,//unknownXToTheThirdPower
-            double b,//unknownXToTheSecondPower
-            double c,//unknownXToTheFirstPower
-            double d//constantNumberLeftOfEquation
+            double a,//unknown x to the third power factor
+            double b,//unknown x to the second power factor
+            double c,//unknown X to the first power factor
+            double d//constant
             )//equation format: ax3 + bx2 + cx + d ,  a ≠ 0
         {
             if(Math.Abs(a) < double.Epsilon)

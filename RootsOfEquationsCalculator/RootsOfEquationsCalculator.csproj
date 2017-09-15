@@ -40,8 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EquationsTypes\LinearEquationWithOneUnknown.cs" />
+    <Compile Include="EquationsTypes\LinearEquation.cs" />
     <Compile Include="EquationsTypes\CubicEquation.cs" />
+    <Compile Include="EquationsTypes\SquareEquation.cs" />
     <Compile Include="Mathematic\Operations.cs" />
     <Compile Include="Mathematic\Constants.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

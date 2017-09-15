@@ -3,7 +3,7 @@ using Xunit;
 
 namespace RootsOfEquationsCalculator.Tests
 {
-    public class LinearEquationWithOneUnknownTests
+    public class LinearEquationTests
     {
         [Fact]
         public void CalculateRootsTests()
@@ -12,23 +12,18 @@ namespace RootsOfEquationsCalculator.Tests
                 RootInformation.InfinitelyManySolutions;
             Assert.Equal(
                 infinitelyManySolutions, 
-                LinearEquationWithOneUnknown.CalculateRoots(0.0, 0.0, 0.0));
-     
-            Assert.Equal(
-                infinitelyManySolutions,
-                LinearEquationWithOneUnknown.CalculateRoots(0.0, 5.0, 5.0));
+                LinearEquation.CalculateRoots(0.0, 0.0));
 
             RootInformation equationHasNotRoot =
-                RootInformation.NotRoots;
+                RootInformation.NoRealSolutions;
             Assert.Equal(
                 equationHasNotRoot,
-                LinearEquationWithOneUnknown.CalculateRoots(0.0, 5.0, 2.0));
+                LinearEquation.CalculateRoots(0.0, 5.0));
 
             double expectedResult = -2.5;
             Assert.Equal(
                 expectedResult,
-                LinearEquationWithOneUnknown.CalculateRoots(2.0, 5.0, 0.0));
-
+                LinearEquation.CalculateRoots(2.0, 5.0));
         }
     }
 }
