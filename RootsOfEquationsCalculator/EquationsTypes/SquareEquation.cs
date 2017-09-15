@@ -7,7 +7,7 @@ namespace RootsOfEquationsCalculator.EquationsTypes
     {
         public static object CalculateRoots(
             double a,//unknown x to the second power factor
-            double b,//unknown x to first power
+            double b,//unknown x to first power factor
             double c)//const
         {//equation format: ax2 + bx + c = 0
             double delta = Math.Pow(b, 2) - 4 * a * c;

@@ -55,7 +55,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LinearEquationWithOneUnknownTests.cs" />
+    <Compile Include="LinearEquationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CubicEquationTests.cs" />
     <Compile Include="SquareEquationTests.cs" />

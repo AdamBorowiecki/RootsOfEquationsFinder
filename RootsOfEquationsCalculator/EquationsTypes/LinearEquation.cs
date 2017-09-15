@@ -3,7 +3,7 @@
     public static class LinearEquation
     {
         public static object CalculateRoots(
-            double a,//unknown x to first power
+            double a,//unknown x to first power factor
             double b//constant
             )//equation format: a * x + b = 0
         {    
