@@ -5,25 +5,25 @@ namespace RootsOfEquationsCalculator.Factory
 {
     public class EquationCalculatorFactory
     {
-        public IEquationCalculator GetEquation(EquationsCoefficients equationFactors)
+        public IEquationCalculator GetEquation(EquationsCoefficients coefficients)
         {
-            switch (ChooseEqualsType(equationFactors))
+            switch (ChooseEqualsType(coefficients))
             {
                 case EquationType.Linear:
                     return new LinearEquationCalculator(
-                        equationFactors.XToPower1, 
-                        equationFactors.Constant);
+                        coefficients.XToPower1, 
+                        coefficients.Constant);
                 case EquationType.Square:
                     return new SquareEquationCalculator(
-                        equationFactors.XToPower2,
-                        equationFactors.XToPower1, 
-                        equationFactors.Constant);
+                        coefficients.XToPower2,
+                        coefficients.XToPower1, 
+                        coefficients.Constant);
                 case EquationType.Cubic:
                     return new CubicEquationCalculator(
-                        equationFactors.XToPower3,
-                        equationFactors.XToPower2,
-                        equationFactors.XToPower1,
-                        equationFactors.Constant);
+                        coefficients.XToPower3,
+                        coefficients.XToPower2,
+                        coefficients.XToPower1,
+                        coefficients.Constant);
                 default:
                     throw new NotSupportedException();
             }
