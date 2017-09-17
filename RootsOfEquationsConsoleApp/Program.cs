@@ -5,6 +5,7 @@ namespace RootsOfEquationsConsoleApp
 {
     public class Program
     {
+   
         static void Main(string[] args)
         {
             bool continueProgram = true;

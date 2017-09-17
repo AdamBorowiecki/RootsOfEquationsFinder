@@ -10,22 +10,30 @@ namespace RootsOfEquationsCalculator.Factory
             switch (ChooseEqualsType(coefficients))
             {
                 case EquationType.Linear:
+                {
                     return new LinearEquationCalculator(
-                        coefficients.XToPower1, 
+                        coefficients.XToPower1,
                         coefficients.Constant);
+                }
                 case EquationType.Square:
+                {
                     return new SquareEquationCalculator(
                         coefficients.XToPower2,
-                        coefficients.XToPower1, 
+                        coefficients.XToPower1,
                         coefficients.Constant);
+                }
                 case EquationType.Cubic:
+                {
                     return new CubicEquationCalculator(
                         coefficients.XToPower3,
                         coefficients.XToPower2,
                         coefficients.XToPower1,
                         coefficients.Constant);
+                }
                 default:
+                {
                     throw new NotSupportedException();
+                }
             }
         }
 

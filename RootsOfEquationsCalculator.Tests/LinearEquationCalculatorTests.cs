@@ -17,7 +17,6 @@ namespace RootsOfEquationsCalculator.Tests
             Assert.Equal(infinitelyManySolutions, linearEquation.CalculateRoots());
         }
 
-        //todo: add inlinedata here
         [Theory]
         [InlineData(0, 5)]
         [InlineData(0, 2)]
