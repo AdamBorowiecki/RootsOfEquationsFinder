@@ -1,14 +1,23 @@
-﻿using System;
+﻿using RootsOfEquationsCalculator.Models;
+using System;
 using System.Collections.Generic;
 
 namespace RootsOfEquationsCalculator.EquationsTypes
 {
-    public class SquareEquation
+    public class SquareEquation : IEquation
     {
-        public static object CalculateRoots(
-            double a,//unknown x to the second power factor
-            double b,//unknown x to first power factor
-            double c)//const
+        private double a;//unknown x to the second power factor
+        private double b;//unknown x to the first power factor
+        private double c;//const
+
+        public SquareEquation(double a, double b, double c)
+        {
+            this.a = a;
+            this.b = b;
+            this.c = c;
+        }
+
+        public IRootsResult CalculateRoots()
         {//equation format: ax2 + bx + c = 0
             double delta = Math.Pow(b, 2) - 4 * a * c;
 
@@ -22,11 +31,11 @@ namespace RootsOfEquationsCalculator.EquationsTypes
             }
             else//(delta < 0)
             {
-                return RootInformation.NoRealSolutions;
+                return new NoRealSolutions();
             }
         }
 
-        private static List<double> TwoRoots(double a, double b, double delta)
+        private RootsValues TwoRoots(double a, double b, double delta)
         {
             List<double> roots = new List<double>();
 
@@ -36,12 +45,12 @@ namespace RootsOfEquationsCalculator.EquationsTypes
             double root2 = (- b + Math.Sqrt(delta)) / (2 * a);
             roots.Add(root2);
 
-            return roots;
+            return new RootsValues(roots);
         }
 
-        private static double OneRoot(double a, double b)
+        private RootsValues OneRoot(double a, double b)
         {
-            return - b / (2 * a);
+            return new RootsValues(- b / (2 * a));
         }
     }
 }

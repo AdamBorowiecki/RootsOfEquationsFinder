@@ -1,0 +1,28 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using RootsOfEquationsCalculator;
+
+namespace RootsOfEquationsConsoleApp.View
+{
+    internal class SquareEquationView : EquationView
+    {
+        protected override EquationsCoefficients ReadParameters()
+        {
+            Console.Write("Factor a = ");
+            double a = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Factor b = ");
+            double b = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Const c = ");
+            double c = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine($"Your equation: {a}x2 + {b}x + {c} = 0");
+
+            EquationsCoefficients equationsCoefficients =
+                new EquationsCoefficients(a, b, c);
+
+            return equationsCoefficients;
+        }
+    }
+}

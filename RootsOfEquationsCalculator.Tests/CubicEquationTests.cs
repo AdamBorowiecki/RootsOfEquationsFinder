@@ -1,49 +1,56 @@
 ﻿using RootsOfEquationsCalculator.EquationsTypes;
+using RootsOfEquationsCalculator.Models;
 using System;
-using System.Collections.Generic;
 using Xunit;
 
 namespace RootsOfEquationsCalculator.Tests
 {
     public class CubicEquationTests
     {
-        [Fact]
-        public void CalculateRootsTests()
+        [Theory]
+        [InlineData(0, - 5, 8, - 6)]
+        [InlineData(0, 2, 4, -6)]
+        public void When_AValueIsZero_Expect_Exception_ThisEquationIsNotCubic(
+             double a, double b, double c, double d)
         {
-            double aValueCauseEquationIsNotCubic = 0;
-            double b = - 5;
-            double c = 8;
-            double d = - 6;
-            Assert.Throws<ArgumentException>(
-                () => CubicEquation.CalculateRoots(aValueCauseEquationIsNotCubic, b, c, d));
+            CubicEquation cubicEquation = new CubicEquation(a, b, c, d);
 
-            double oneRoot = 3;
-            Assert.Equal(
-                oneRoot,
-                CubicEquation.CalculateRoots(1, -5, 8, - 6));
+            Assert.Throws<ArgumentException>(() => cubicEquation.CalculateRoots());
+        }
 
-            double tripleRoot = 2;
-            Assert.Equal(tripleRoot, CubicEquation.CalculateRoots(1, -6, 12, -8));
+        [Theory]
+        [InlineData(3, 1, -5, 8, -6)]
+        public void When_ParameterHIsGreaterOrEqualsZero_Expect_SingleRoot(
+            double rootValue, double a, double b, double c, double d)
+        {
+            RootsValues root = new RootsValues(rootValue);
+            CubicEquation cubicEquation = new CubicEquation(a, b, c, d);
 
-            double aArgument = 1;
-            double bArgument = - 6;
-            double cArgument = 11;
-            double dArgument = - 6;
+            Assert.Equal(root, cubicEquation.CalculateRoots());
+        }
 
-            object roots = CubicEquation.CalculateRoots(
-                    aArgument, bArgument, cArgument, dArgument);
-            List<double> castedRoots = (List<double>)roots;
+        [Theory]
+        [InlineData(2, 1, -6, 12, -8)]
+        public void When_ParametersFAndGAreZero_Expect_TripleRoot(
+            double rootValue, double a, double b, double c, double d)
+        {
+            RootsValues root = new RootsValues(rootValue);
+            CubicEquation cubicEquation = new CubicEquation(a, b, c, d);
 
-            int numberOfRoots = 3;
-            Assert.Equal(numberOfRoots, castedRoots.Count);
+            Assert.Equal(root, cubicEquation.CalculateRoots());
+        }
 
-            double firstRoot = 3;
-            Assert.Equal(firstRoot, castedRoots[0]);
-            double secondRoot = 1;
-            Assert.Equal(secondRoot, castedRoots[1]);
-            double thirdRoot = 2;
-            Assert.Equal(thirdRoot, castedRoots[2]);
+        [Theory]
+        [InlineData(3, 1, 2, 1, -6, 11, -6)]
+        public void When_ParametersHIsLessThanZero_Expect_ThreeRoots(
+            double root1, double root2, double root3,
+            double a, double b, double c, double d)
+        {
+            RootsValues rootsValues = new RootsValues(root1, root2, root3);
+            CubicEquation cubicEquation = new CubicEquation(a, b, c, d);
 
+            Assert.Equal(rootsValues.Count(), cubicEquation.CalculateRoots().Count());
+            Assert.Equal(rootsValues, cubicEquation.CalculateRoots());
         }
     }
 }

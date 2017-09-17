@@ -1,6 +1,5 @@
-﻿using RootsOfEquationsCalculator.EquationsTypes;
+﻿using RootsOfEquationsConsoleApp.View;
 using System;
-using System.Collections.Generic;
 
 namespace RootsOfEquationsConsoleApp
 {
@@ -8,16 +7,28 @@ namespace RootsOfEquationsConsoleApp
     {
         static void Main(string[] args)
         {
-            Menu();
+            bool continueProgram = true;
 
-            int choose;
-            if(int.TryParse(Console.ReadLine(), out choose))
+            while (continueProgram)
             {
-                ChooseEquationType(choose);
-            }
-            else
-            {
-                Console.WriteLine("Invalid input - choose number 1, 2 or 3");
+                Menu();
+
+                int choose;
+                if (int.TryParse(Console.ReadLine(), out choose) &&
+                    choose == 1 || choose == 2 || choose == 3)
+                {
+                    ViewFactory viewFactory = new ViewFactory();
+                    EquationView equationView = viewFactory.GetView(choose);
+                    equationView.Display();
+                }
+                else
+                {
+                    Console.WriteLine("Invalid input - choose number 1, 2 or 3");
+                }
+
+                Console.WriteLine("---------------------------");
+
+                continueProgram = IfContinue();
             }
         }
 
@@ -29,66 +40,16 @@ namespace RootsOfEquationsConsoleApp
             Console.WriteLine("Cubic equation: 3");
         }
 
-        private static void ChooseEquationType(int choose)
+        static bool IfContinue()
         {
-            switch(choose)
-            {
-                case 1:
-                    LinearEquationView();
-                    break;
-                case 2:
-                    SquareEquationView();
-                    break;
-                case 3:
-                    CubicEquationView();
-                    break;
-                default:
-                    Console.WriteLine("Choose number 1, 2 or 3");
-                    break;
-            }
-        }
+            Console.WriteLine("Do you want to continue?");
+            Console.WriteLine("Yes - any key");
+            Console.WriteLine("No  - 0");
 
-        private static void LinearEquationView()
-        {
-            Console.Write("Factor a = ");
-            double a = Convert.ToDouble(Console.ReadLine());
-            Console.Write("Const b = ");
-            double b = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine($"Your equation: {a}x + {b} = 0");
+            string result = Console.ReadLine();
+            bool ifContinue = !result.Equals("0");
 
-            object result = LinearEquation.CalculateRoots(a, b);
-            Console.WriteLine($"Result {result}");
-        }
-
-        private static void SquareEquationView()
-        {
-            Console.Write("Factor a = ");
-            double a = Convert.ToDouble(Console.ReadLine());
-            Console.Write("Factor b = ");
-            double b = Convert.ToDouble(Console.ReadLine());
-            Console.Write("Const c = ");
-            double c = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine($"Your equation: {a}x2 + {b}x + {c} = 0");
-
-            List<double> result = (List<double>)SquareEquation.CalculateRoots(a, b, c);
-            Console.WriteLine($"Result {result.ToString()}");
-        }
-
-        private static void CubicEquationView()
-        {
-            Console.Write("Factor a = ");
-            double a = Convert.ToDouble(Console.ReadLine());
-            Console.Write("Factor b = ");
-            double b = Convert.ToDouble(Console.ReadLine());
-            Console.Write("Factor c = ");
-            double c = Convert.ToDouble(Console.ReadLine());
-            Console.Write("Const d = ");
-            double d = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine(
-                $"Your equation: {a}x3 + {b}x2 + {c}x + {d} = 0");
-
-            object result = CubicEquation.CalculateRoots(a, b, c, d);
-            Console.WriteLine($"Result {result}");
+            return ifContinue;
         }
     }
 }

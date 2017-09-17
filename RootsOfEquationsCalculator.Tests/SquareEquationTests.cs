@@ -1,4 +1,5 @@
 ﻿using RootsOfEquationsCalculator.EquationsTypes;
+using RootsOfEquationsCalculator.Models;
 using System.Collections.Generic;
 using Xunit;
 
@@ -6,24 +7,50 @@ namespace RootsOfEquationsCalculator.Tests
 {
     public class SquareEquationTests
     {
-        [Fact]
-        public void CalculateRootsTests()
+        [Theory]
+        [InlineData(2, -2, 3, -1)]
+        public void When_DeltaIsPossitive_Expect_TwoSoultion(
+            int numberOfSolutions, double a, double b, double c)
         {
-            int twoNumberOfRoots = 2;
-            List<double> twoRootsResult =
-                (List<double>)SquareEquation.CalculateRoots(-2, 3, -1);
-            Assert.Equal(twoNumberOfRoots, twoRootsResult.Count);
+            SquareEquation squareEquation = new SquareEquation(a, b, c);
 
-            double firstRoot = 1;
-            double secondRoot = 0.5;
-            Assert.Equal(firstRoot, twoRootsResult[0]);
-            Assert.Equal(secondRoot, twoRootsResult[1]);
+            Assert.Equal(
+                numberOfSolutions,
+                squareEquation.CalculateRoots().Count());
+        }
 
-            double singleRoot = - 0.5;
-            Assert.Equal(singleRoot, SquareEquation.CalculateRoots(4, 4, 1));
+        [Theory]
+        [InlineData(1, 0.5, -2, 3, -1)]
+        public void When_DeltaIsPossitive_Expect_ThisTwoRoots(
+            double root1, double root2, double a, double b, double c)
+        {
+            RootsValues rootsValues = 
+                new RootsValues(new List<double>() { root1, root2});
+            SquareEquation squareEquation = new SquareEquation(a, b, c);
 
-            RootInformation noRealSolutions = RootInformation.NoRealSolutions;
-            Assert.Equal(noRealSolutions, SquareEquation.CalculateRoots(1, 2, 4));
+            Assert.Equal(rootsValues, squareEquation.CalculateRoots());
+        }
+
+        [Theory]
+        [InlineData(- 0.5, 4, 4, 1)]
+        public void When_DeltaIsZero_Expect_OneRoot(
+            double root, double a, double b, double c)
+        {
+            RootsValues rootsValues = new RootsValues(- 0.5);
+            SquareEquation squareEquation = new SquareEquation(a, b, c);
+
+            Assert.Equal(rootsValues, squareEquation.CalculateRoots());
+        }
+
+        [Theory]
+        [InlineData(1, 2, 4)]
+        public void When_DeltaIsLessThanZero_Expect_NoRealSolution(
+            double a, double b, double c)
+        {
+            NoRealSolutions noRealSolutions = new NoRealSolutions();
+            SquareEquation squareEquation = new SquareEquation(a, b, c);
+
+            Assert.Equal(noRealSolutions, squareEquation.CalculateRoots());
         }
     }
 }

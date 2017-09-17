@@ -1,19 +1,28 @@
 ﻿using RootsOfEquationsCalculator.Mathematic;
+using RootsOfEquationsCalculator.Models;
 using System;
 using System.Collections.Generic;
 
 namespace RootsOfEquationsCalculator.EquationsTypes
 {
-    public static class CubicEquation
+    public class CubicEquation : IEquation
     {
-        public static object CalculateRoots(
-            double a,//unknown x to the third power factor
-            double b,//unknown x to the second power factor
-            double c,//unknown X to the first power factor
-            double d//constant
-            )//equation format: ax3 + bx2 + cx + d ,  a ≠ 0
+        private double a;//unknown x to the third power factor
+        private double b;//unknown x to the second power factor
+        private double c;//unknown X to the first power factor
+        private double d;//constant
+
+        public CubicEquation(double a, double b, double c, double d)
         {
-            if(Math.Abs(a) < double.Epsilon)
+            this.a = a;
+            this.b = b;
+            this.c = c;
+            this.d = d;
+        }
+
+        public IRootsResult CalculateRoots()
+        {//equation format: ax3 + bx2 + cx + d ,  a ≠ 0
+            if (Math.Abs(a) < double.Epsilon)
             {
                 throw new ArgumentException(
                     $"{nameof(a)} has value = {a} - it is not cubic equation");
@@ -30,11 +39,11 @@ namespace RootsOfEquationsCalculator.EquationsTypes
 
             if(h >= double.Epsilon)
             {
-                return Operations.Round(OnlyOneRoot(a, b, g, h));
+                return SingleRoot(a, b, g, h);
             }
             else if(Math.Abs(f) < double.Epsilon && Math.Abs(g) < double.Epsilon)
             {
-                return Operations.Round(TripleRoot(a, d));
+                return TripleRoot(a, d);
             }
             else
             {
@@ -42,20 +51,24 @@ namespace RootsOfEquationsCalculator.EquationsTypes
             }
         }
 
-        private static double OnlyOneRoot(double a, double b, double g, double h)
+        private RootsValues SingleRoot(double a, double b, double g, double h)
         {
-            return
+            double root =
                 (Math.Pow(-g / 2 + Math.Sqrt(h), Constants.ONE_THIRD_POWER)) +
                 (Math.Pow(-g / 2 - Math.Sqrt(h), Constants.ONE_THIRD_POWER)) -
                 (b / (3 * a));
+
+            return new RootsValues(Operations.Round(root));
         }
 
-        private static double TripleRoot(double a, double d)
+        private RootsValues TripleRoot(double a, double d)
         {
-            return  -Operations.Power(d / a, Constants.ONE_THIRD_POWER);
+            double root = - Operations.Power(d / a, Constants.ONE_THIRD_POWER);
+
+            return new RootsValues(Operations.Round(root));
         }
 
-        private static List<double> ThreeRoots(double a, double b, double g, double h)
+        private RootsValues ThreeRoots(double a, double b, double g, double h)
         {
             double i = Math.Sqrt((Math.Pow(g, 2) / 4) - h);
             double j = Operations.Power(i, Constants.ONE_THIRD_POWER);
@@ -75,7 +88,7 @@ namespace RootsOfEquationsCalculator.EquationsTypes
             double root3 = -j * (m - n) + p;
             roots.Add(Operations.Round(root3));
 
-            return roots;
+            return new RootsValues(roots);
         }
     }
 }
