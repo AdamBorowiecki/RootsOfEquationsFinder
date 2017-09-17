@@ -3,12 +3,12 @@ using RootsOfEquationsCalculator.RootsResultsModels;
 
 namespace RootsOfEquationsCalculator.EquationsTypes
 {
-    public class LinearEquation : IEquation
+    public class LinearEquationCalculator : IEquationCalculator
     {
         public double a;//unknown x to first power factor
         public double b;//constant
 
-        public LinearEquation(
+        public LinearEquationCalculator(
             double a,//unknown x to first power factor
             double b)//constant
         {//equation format: a * x + b = 0

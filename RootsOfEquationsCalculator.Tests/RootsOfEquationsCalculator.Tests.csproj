@@ -55,10 +55,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LinearEquationTests.cs" />
+    <Compile Include="LinearEquationCalculatorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="CubicEquationTests.cs" />
-    <Compile Include="SquareEquationTests.cs" />
+    <Compile Include="CubicEquationCalculatorTests.cs" />
+    <Compile Include="SquareEquationCalculatorTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

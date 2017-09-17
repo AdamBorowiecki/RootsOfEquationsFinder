@@ -3,22 +3,23 @@ using System;
 
 namespace RootsOfEquationsCalculator.Factory
 {
-    public class EquationFactory
+    public class EquationCalculatorFactory
     {
-        public IEquation GetEquation(EquationsCoefficients equationFactors)
+        public IEquationCalculator GetEquation(EquationsCoefficients equationFactors)
         {
             switch (ChooseEqualsType(equationFactors))
             {
                 case EquationType.Linear:
-                    return new LinearEquation(
-                        equationFactors.XToPower1, equationFactors.Constant);
+                    return new LinearEquationCalculator(
+                        equationFactors.XToPower1, 
+                        equationFactors.Constant);
                 case EquationType.Square:
-                    return new SquareEquation(
+                    return new SquareEquationCalculator(
                         equationFactors.XToPower2,
                         equationFactors.XToPower1, 
                         equationFactors.Constant);
                 case EquationType.Cubic:
-                    return new CubicEquation(
+                    return new CubicEquationCalculator(
                         equationFactors.XToPower3,
                         equationFactors.XToPower2,
                         equationFactors.XToPower1,
@@ -28,7 +29,6 @@ namespace RootsOfEquationsCalculator.Factory
             }
         }
 
-        //todo: condition should be more specific?
         private EquationType ChooseEqualsType(EquationsCoefficients equationFactors)
         {
             if (equationFactors.XToPower3 == 0 &&

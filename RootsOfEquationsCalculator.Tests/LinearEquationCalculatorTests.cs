@@ -5,14 +5,14 @@ using Xunit;
 
 namespace RootsOfEquationsCalculator.Tests
 {
-    public class LinearEquationTests
+    public class LinearEquationCalculatorTests
     {
         [Fact]
         public void When_AIsZeroAndBIsZero_Expect_InfinitelyManySolutions()
         {
             InfinitelyManySolutions infinitelyManySolutions =
                 new InfinitelyManySolutions();
-            LinearEquation linearEquation = new LinearEquation(0, 0);
+            LinearEquationCalculator linearEquation = new LinearEquationCalculator(0, 0);
 
             Assert.Equal(infinitelyManySolutions, linearEquation.CalculateRoots());
         }
@@ -26,7 +26,7 @@ namespace RootsOfEquationsCalculator.Tests
             double a, double b)
         {
             NoRealSolutions noRealSolutions = new NoRealSolutions();;
-            LinearEquation linearEquation = new LinearEquation(a, b);
+            LinearEquationCalculator linearEquation = new LinearEquationCalculator(a, b);
         
             Assert.Equal(noRealSolutions, linearEquation.CalculateRoots());            
         }
@@ -38,7 +38,7 @@ namespace RootsOfEquationsCalculator.Tests
             double expect, double a, double b)
         {
             RootsValues expectedValues = new RootsValues(expect);
-            LinearEquation linearEquation = new LinearEquation(a, b);
+            LinearEquationCalculator linearEquation = new LinearEquationCalculator(a, b);
             Assert.Equal(expectedValues, linearEquation.CalculateRoots());
         }
     }

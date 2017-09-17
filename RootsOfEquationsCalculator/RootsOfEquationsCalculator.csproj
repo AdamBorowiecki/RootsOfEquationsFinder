@@ -40,12 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EquationsTypes\IEquation.cs" />
-    <Compile Include="EquationsTypes\LinearEquation.cs" />
-    <Compile Include="EquationsTypes\CubicEquation.cs" />
-    <Compile Include="EquationsTypes\SquareEquation.cs" />
+    <Compile Include="EquationsTypes\IEquationCalculator.cs" />
+    <Compile Include="EquationsTypes\LinearEquationCalculator.cs" />
+    <Compile Include="EquationsTypes\CubicEquationCalculator.cs" />
+    <Compile Include="EquationsTypes\SquareEquationCalculator.cs" />
     <Compile Include="EquationsCoefficients.cs" />
-    <Compile Include="Factory\EquationFactory.cs" />
+    <Compile Include="Factory\EquationCalculatorFactory.cs" />
     <Compile Include="Factory\EquationType.cs" />
     <Compile Include="Mathematic\Operations.cs" />
     <Compile Include="Mathematic\Constants.cs" />

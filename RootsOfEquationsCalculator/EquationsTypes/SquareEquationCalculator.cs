@@ -4,13 +4,13 @@ using System.Collections.Generic;
 
 namespace RootsOfEquationsCalculator.EquationsTypes
 {
-    public class SquareEquation : IEquation
+    public class SquareEquationCalculator : IEquationCalculator
     {
         private double a;//unknown x to the second power factor
         private double b;//unknown x to the first power factor
         private double c;//const
 
-        public SquareEquation(double a, double b, double c)
+        public SquareEquationCalculator(double a, double b, double c)
         {
             this.a = a;
             this.b = b;

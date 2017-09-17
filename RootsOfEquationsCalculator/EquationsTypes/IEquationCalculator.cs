@@ -2,7 +2,7 @@
 
 namespace RootsOfEquationsCalculator.EquationsTypes
 {
-    public interface IEquation
+    public interface IEquationCalculator
     {
         IRootsResult CalculateRoots();
         string ToString();

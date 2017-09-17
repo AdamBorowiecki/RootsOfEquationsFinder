@@ -17,8 +17,8 @@ namespace RootsOfEquationsConsoleApp.View
 
         protected void DisplayResult(EquationsCoefficients equationsCoefficients)
         {
-            EquationFactory equationFactory = new EquationFactory();
-            IEquation equation = equationFactory.GetEquation(equationsCoefficients);
+            EquationCalculatorFactory equationFactory = new EquationCalculatorFactory();
+            IEquationCalculator equation = equationFactory.GetEquation(equationsCoefficients);
             IRootsResult result = equation.CalculateRoots();
             Console.WriteLine($"Result: {equation.CalculateRoots()}");
         }

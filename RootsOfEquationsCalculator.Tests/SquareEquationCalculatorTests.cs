@@ -5,14 +5,14 @@ using Xunit;
 
 namespace RootsOfEquationsCalculator.Tests
 {
-    public class SquareEquationTests
+    public class SquareEquationCalculatorTests
     {
         [Theory]
         [InlineData(2, -2, 3, -1)]
         public void When_DeltaIsPossitive_Expect_TwoSoultion(
             int numberOfSolutions, double a, double b, double c)
         {
-            SquareEquation squareEquation = new SquareEquation(a, b, c);
+            SquareEquationCalculator squareEquation = new SquareEquationCalculator(a, b, c);
 
             Assert.Equal(
                 numberOfSolutions,
@@ -26,7 +26,7 @@ namespace RootsOfEquationsCalculator.Tests
         {
             RootsValues rootsValues = 
                 new RootsValues(new List<double>() { root1, root2});
-            SquareEquation squareEquation = new SquareEquation(a, b, c);
+            SquareEquationCalculator squareEquation = new SquareEquationCalculator(a, b, c);
 
             Assert.Equal(rootsValues, squareEquation.CalculateRoots());
         }
@@ -37,7 +37,7 @@ namespace RootsOfEquationsCalculator.Tests
             double root, double a, double b, double c)
         {
             RootsValues rootsValues = new RootsValues(- 0.5);
-            SquareEquation squareEquation = new SquareEquation(a, b, c);
+            SquareEquationCalculator squareEquation = new SquareEquationCalculator(a, b, c);
 
             Assert.Equal(rootsValues, squareEquation.CalculateRoots());
         }
@@ -48,7 +48,7 @@ namespace RootsOfEquationsCalculator.Tests
             double a, double b, double c)
         {
             NoRealSolutions noRealSolutions = new NoRealSolutions();
-            SquareEquation squareEquation = new SquareEquation(a, b, c);
+            SquareEquationCalculator squareEquation = new SquareEquationCalculator(a, b, c);
 
             Assert.Equal(noRealSolutions, squareEquation.CalculateRoots());
         }

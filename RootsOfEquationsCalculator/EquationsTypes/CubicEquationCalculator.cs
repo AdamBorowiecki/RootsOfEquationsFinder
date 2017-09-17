@@ -5,14 +5,14 @@ using System.Collections.Generic;
 
 namespace RootsOfEquationsCalculator.EquationsTypes
 {
-    public class CubicEquation : IEquation
+    public class CubicEquationCalculator : IEquationCalculator
     {
         private double a;//unknown x to the third power factor
         private double b;//unknown x to the second power factor
         private double c;//unknown X to the first power factor
         private double d;//constant
 
-        public CubicEquation(double a, double b, double c, double d)
+        public CubicEquationCalculator(double a, double b, double c, double d)
         {
             this.a = a;
             this.b = b;

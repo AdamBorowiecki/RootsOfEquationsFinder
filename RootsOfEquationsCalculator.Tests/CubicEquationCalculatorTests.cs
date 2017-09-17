@@ -5,7 +5,7 @@ using Xunit;
 
 namespace RootsOfEquationsCalculator.Tests
 {
-    public class CubicEquationTests
+    public class CubicEquationCalculatorTests
     {
         [Theory]
         [InlineData(0, - 5, 8, - 6)]
@@ -13,7 +13,7 @@ namespace RootsOfEquationsCalculator.Tests
         public void When_AValueIsZero_Expect_Exception_ThisEquationIsNotCubic(
              double a, double b, double c, double d)
         {
-            CubicEquation cubicEquation = new CubicEquation(a, b, c, d);
+            CubicEquationCalculator cubicEquation = new CubicEquationCalculator(a, b, c, d);
 
             Assert.Throws<ArgumentException>(() => cubicEquation.CalculateRoots());
         }
@@ -24,7 +24,7 @@ namespace RootsOfEquationsCalculator.Tests
             double rootValue, double a, double b, double c, double d)
         {
             RootsValues root = new RootsValues(rootValue);
-            CubicEquation cubicEquation = new CubicEquation(a, b, c, d);
+            CubicEquationCalculator cubicEquation = new CubicEquationCalculator(a, b, c, d);
 
             Assert.Equal(root, cubicEquation.CalculateRoots());
         }
@@ -35,7 +35,7 @@ namespace RootsOfEquationsCalculator.Tests
             double rootValue, double a, double b, double c, double d)
         {
             RootsValues root = new RootsValues(rootValue);
-            CubicEquation cubicEquation = new CubicEquation(a, b, c, d);
+            CubicEquationCalculator cubicEquation = new CubicEquationCalculator(a, b, c, d);
 
             Assert.Equal(root, cubicEquation.CalculateRoots());
         }
@@ -47,7 +47,7 @@ namespace RootsOfEquationsCalculator.Tests
             double a, double b, double c, double d)
         {
             RootsValues rootsValues = new RootsValues(root1, root2, root3);
-            CubicEquation cubicEquation = new CubicEquation(a, b, c, d);
+            CubicEquationCalculator cubicEquation = new CubicEquationCalculator(a, b, c, d);
 
             Assert.Equal(rootsValues.Count(), cubicEquation.CalculateRoots().Count());
             Assert.Equal(rootsValues, cubicEquation.CalculateRoots());
