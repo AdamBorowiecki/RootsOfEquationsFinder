@@ -30,9 +30,10 @@ namespace RootsOfEquationsCalculator.Tests
             Assert.Equal(noRealSolutions, linearEquation.CalculateRoots());            
         }
 
-        //todo: add more inline data
         [Theory]
         [InlineData(-2.5, 2, 5)]
+        [InlineData(2, 1, -2)]
+        [InlineData(-0.5, 1.0/3, 1.0/6)]
         public void When_AIsZeroAndBIsNotZero_Expect_OneSolution(
             double expect, double a, double b)
         {

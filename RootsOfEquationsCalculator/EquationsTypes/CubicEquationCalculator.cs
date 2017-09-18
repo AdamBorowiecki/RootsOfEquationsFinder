@@ -54,8 +54,8 @@ namespace RootsOfEquationsCalculator.EquationsTypes
         private RootsValues SingleRoot(double a, double b, double g, double h)
         {
             double root =
-                (Math.Pow(-g / 2 + Math.Sqrt(h), Constants.ONE_THIRD_POWER)) +
-                (Math.Pow(-g / 2 - Math.Sqrt(h), Constants.ONE_THIRD_POWER)) -
+                (Operations.Power(-g / 2 + Math.Sqrt(h), Constants.ONE_THIRD_POWER)) +
+                (Operations.Power(-g / 2 - Math.Sqrt(h), Constants.ONE_THIRD_POWER)) -
                 (b / (3 * a));
 
             return new RootsValues(Operations.Round(root));

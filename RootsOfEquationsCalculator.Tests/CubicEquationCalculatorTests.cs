@@ -20,6 +20,7 @@ namespace RootsOfEquationsCalculator.Tests
 
         [Theory]
         [InlineData(3, 1, -5, 8, -6)]
+        [InlineData(0.8488294715, 3, -6, 10, -6)]
         public void When_ParameterHIsGreaterOrEqualsZero_Expect_SingleRoot(
             double rootValue, double a, double b, double c, double d)
         {
