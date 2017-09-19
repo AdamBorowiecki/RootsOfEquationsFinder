@@ -45,8 +45,6 @@
     <Compile Include="EquationsTypes\CubicEquationCalculator.cs" />
     <Compile Include="EquationsTypes\SquareEquationCalculator.cs" />
     <Compile Include="EquationsCoefficients.cs" />
-    <Compile Include="Factory\EquationCalculatorFactory.cs" />
-    <Compile Include="Factory\EquationType.cs" />
     <Compile Include="Mathematic\Operations.cs" />
     <Compile Include="Mathematic\Constants.cs" />
     <Compile Include="RootsResultsModels\InfinitelyManySolutions .cs" />

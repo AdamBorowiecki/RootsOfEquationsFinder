@@ -10,13 +10,13 @@ namespace RootsOfEquationsConsoleApp
         public static WindsorContainer IocContainer { get; private set; }
 
         static IoCConfiguration()
-        {
-            IocContainer = new WindsorContainer();
+        {         
             Configure();
         }
 
         private static void Configure()
         {
+            IocContainer = new WindsorContainer();
             ConfigureFor<LinearEquationCalculator, LinearEquationView>("1");
             ConfigureFor<SquareEquationCalculator, SquareEquationView>("2");
             ConfigureFor<CubicEquationCalculator, CubicEquationView>("3");

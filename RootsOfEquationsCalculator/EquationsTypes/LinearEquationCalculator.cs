@@ -1,5 +1,4 @@
-﻿using System;
-using RootsOfEquationsCalculator.Models;
+﻿using RootsOfEquationsCalculator.Models;
 using RootsOfEquationsCalculator.RootsResultsModels;
 
 namespace RootsOfEquationsCalculator.EquationsTypes
@@ -23,10 +22,5 @@ namespace RootsOfEquationsCalculator.EquationsTypes
 
             return new RootsValues(- b / a);
         }
-
-        //public override string ToString()
-        //{
-        //    return $"Your equation: {a}x + {b} = 0";
-        //}
     }
 }
