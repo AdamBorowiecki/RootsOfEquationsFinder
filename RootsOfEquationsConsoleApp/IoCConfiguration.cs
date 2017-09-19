@@ -7,7 +7,7 @@ namespace RootsOfEquationsConsoleApp
 {
     internal static class IoCConfiguration
     {
-        public static WindsorContainer IocContainer { get; }
+        public static WindsorContainer IocContainer { get; private set; }
 
         static IoCConfiguration()
         {
@@ -17,51 +17,26 @@ namespace RootsOfEquationsConsoleApp
 
         private static void Configure()
         {
-            ConfigurationForLinearEquation();
-            ConfigurationForSquareEquation();
-            ConfigurationForCubicEquation();
+            ConfigureFor<LinearEquationCalculator, LinearEquationView>("1");
+            ConfigureFor<SquareEquationCalculator, SquareEquationView>("2");
+            ConfigureFor<CubicEquationCalculator, CubicEquationView>("3");
         }
 
-        private static void ConfigurationForLinearEquation()
+        private static void ConfigureFor<CalculatorType, ViewType>(string resolveKey)
+            where CalculatorType : IEquationCalculator
+            where ViewType : EquationView
         {
             IocContainer.Register(
                 Component.For<IEquationCalculator>().
-                    ImplementedBy<LinearEquationCalculator>().
+                    ImplementedBy<CalculatorType>().
                         LifestyleSingleton());
 
             IocContainer.Register(
                 Component.For<EquationView>().
-                    ImplementedBy<LinearEquationView>().Named("1").
-                        DependsOn(
-                            Dependency.OnComponent<IEquationCalculator, LinearEquationCalculator>()));
-        }
-
-        private static void ConfigurationForSquareEquation()
-        {
-            IocContainer.Register(
-                Component.For<IEquationCalculator>().
-                    ImplementedBy<SquareEquationCalculator>().
-                        LifestyleSingleton());
-
-            IocContainer.Register(
-                Component.For<EquationView>().
-                    ImplementedBy<SquareEquationView>().Named("2").
-                        DependsOn(
-                            Dependency.OnComponent<IEquationCalculator, SquareEquationCalculator>()));
-        }
-
-        private static void ConfigurationForCubicEquation()
-        {
-            IocContainer.Register(
-                Component.For<IEquationCalculator>().
-                    ImplementedBy<CubicEquationCalculator>().
-                        LifestyleSingleton());
-
-            IocContainer.Register(
-                Component.For<EquationView>().
-                    ImplementedBy<CubicEquationView>().Named("3").
-                        DependsOn(
-                            Dependency.OnComponent<IEquationCalculator, CubicEquationCalculator>()));
+                    ImplementedBy<ViewType>().
+                        Named(resolveKey).
+                            DependsOn(
+                                Dependency.OnComponent<IEquationCalculator, CalculatorType>()));
         }
     }
 }

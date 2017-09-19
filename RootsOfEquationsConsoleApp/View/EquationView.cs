@@ -1,6 +1,5 @@
 ﻿using RootsOfEquationsCalculator;
 using RootsOfEquationsCalculator.EquationsTypes;
-using RootsOfEquationsCalculator.Factory;
 using RootsOfEquationsCalculator.Models;
 using System;
 
