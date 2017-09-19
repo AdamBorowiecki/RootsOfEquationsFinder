@@ -8,19 +8,14 @@ namespace RootsOfEquationsConsoleApp.View
 {
     internal abstract class EquationView
     {
-        public void Display()
-        {
-            EquationsCoefficients equationsCoefficients = ReadParameters();
-            DisplayResult(equationsCoefficients);
-        }
-        protected abstract EquationsCoefficients ReadParameters();
+        protected IEquationCalculator equationCalculator;
 
-        protected void DisplayResult(EquationsCoefficients equationsCoefficients)
+        internal abstract EquationsCoefficients ReadParameters();
+
+        internal void DisplayResult(EquationsCoefficients equationsCoefficients)
         {
-            EquationCalculatorFactory equationFactory = new EquationCalculatorFactory();
-            IEquationCalculator equation = equationFactory.GetEquation(equationsCoefficients);
-            IRootsResult result = equation.CalculateRoots();
-            Console.WriteLine($"Result: {equation.CalculateRoots()}");
+            IRootsResult result = equationCalculator.CalculateRoots(equationsCoefficients);
+            Console.WriteLine($"Result: {result}");
         }
     }
 }

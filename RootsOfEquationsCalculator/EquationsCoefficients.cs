@@ -2,10 +2,10 @@
 {
     public class EquationsCoefficients
     {
-        public double XToPower3 { get; set; }
-        public double XToPower2 { get; set; }
-        public double XToPower1 { get; set; }
-        public double Constant { get; set; }
+        public double XToPower3 { get; }
+        public double XToPower2 { get; }
+        public double XToPower1 { get; }
+        public double Constant { get; }
 
         public EquationsCoefficients(double a, double b)
         {

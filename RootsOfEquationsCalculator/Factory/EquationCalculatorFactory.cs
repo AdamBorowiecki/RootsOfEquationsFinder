@@ -5,7 +5,7 @@ namespace RootsOfEquationsCalculator.Factory
 {
     public class EquationCalculatorFactory
     {
-        public IEquationCalculator GetEquation(EquationsCoefficients coefficients)
+        /*public IEquationCalculator GetEquation(EquationsCoefficients coefficients)
         {
             switch (ChooseEqualsType(coefficients))
             {
@@ -35,9 +35,9 @@ namespace RootsOfEquationsCalculator.Factory
                     throw new NotSupportedException();
                 }
             }
-        }
+        }*/
 
-        private EquationType ChooseEqualsType(EquationsCoefficients equationFactors)
+        /*private EquationType ChooseEqualsType(EquationsCoefficients equationFactors)
         {
             if (equationFactors.XToPower3 == 0 &&
                equationFactors.XToPower2 == 0)
@@ -47,6 +47,6 @@ namespace RootsOfEquationsCalculator.Factory
                 return EquationType.Square;
 
             return EquationType.Cubic;
-        }
+        }*/
     }
 }

@@ -1,16 +1,18 @@
 ﻿using RootsOfEquationsCalculator;
 using RootsOfEquationsCalculator.EquationsTypes;
-using RootsOfEquationsCalculator.Factory;
-using RootsOfEquationsCalculator.Models;
 using System;
 
 namespace RootsOfEquationsConsoleApp.View
 {
     internal class LinearEquationView : EquationView
     {
-        protected override EquationsCoefficients ReadParameters()
+        public LinearEquationView(IEquationCalculator equationCalculator)
         {
-           
+            base.equationCalculator = equationCalculator;
+        }
+
+        internal override EquationsCoefficients ReadParameters()
+        {
             Console.Write("Factor a = ");
             double a = Convert.ToDouble(Console.ReadLine());
             Console.Write("Const b = ");

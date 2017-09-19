@@ -4,7 +4,7 @@ namespace RootsOfEquationsCalculator.EquationsTypes
 {
     public interface IEquationCalculator
     {
-        IRootsResult CalculateRoots();
+        IRootsResult CalculateRoots(EquationsCoefficients equationsCoefficients);
         string ToString();
     }
 }

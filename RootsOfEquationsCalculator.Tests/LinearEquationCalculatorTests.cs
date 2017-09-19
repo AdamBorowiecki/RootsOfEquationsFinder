@@ -7,7 +7,7 @@ namespace RootsOfEquationsCalculator.Tests
 {
     public class LinearEquationCalculatorTests
     {
-        [Fact]
+        /*[Fact]
         public void When_AIsZeroAndBIsZero_Expect_InfinitelyManySolutions()
         {
             InfinitelyManySolutions infinitelyManySolutions =
@@ -40,6 +40,6 @@ namespace RootsOfEquationsCalculator.Tests
             RootsValues expectedValues = new RootsValues(expect);
             LinearEquationCalculator linearEquation = new LinearEquationCalculator(a, b);
             Assert.Equal(expectedValues, linearEquation.CalculateRoots());
-        }
+        }*/
     }
 }

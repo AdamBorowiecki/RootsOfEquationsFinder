@@ -1,23 +1,16 @@
-﻿using RootsOfEquationsCalculator.Models;
+﻿using System;
+using RootsOfEquationsCalculator.Models;
 using RootsOfEquationsCalculator.RootsResultsModels;
 
 namespace RootsOfEquationsCalculator.EquationsTypes
 {
     public class LinearEquationCalculator : IEquationCalculator
     {
-        public double a;//unknown x to first power factor
-        public double b;//constant
+        public IRootsResult CalculateRoots(EquationsCoefficients equationsCoefficients)
+        {
+            double a = equationsCoefficients.XToPower1;
+            double b = equationsCoefficients.Constant;
 
-        public LinearEquationCalculator(
-            double a,//unknown x to first power factor
-            double b)//constant
-        {//equation format: a * x + b = 0
-            this.a = a;
-            this.b = b;
-        }
-
-        public IRootsResult CalculateRoots()
-        {    
             if (a.Equals(0.0) && b.Equals(0.0))
             {
                 return new InfinitelyManySolutions();
@@ -31,9 +24,9 @@ namespace RootsOfEquationsCalculator.EquationsTypes
             return new RootsValues(- b / a);
         }
 
-        public override string ToString()
-        {
-            return $"Your equation: {a}x + {b} = 0";
-        }
+        //public override string ToString()
+        //{
+        //    return $"Your equation: {a}x + {b} = 0";
+        //}
     }
 }

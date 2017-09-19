@@ -3,7 +3,8 @@ using System;
 
 namespace RootsOfEquationsConsoleApp
 {
-    internal class ViewFactory
+
+    /*internal class ViewFactory
     {
         public EquationView GetView(int choose)
         {
@@ -20,5 +21,5 @@ namespace RootsOfEquationsConsoleApp
                     throw new NotSupportedException();
             }
         }
-    }
+    }*/
 }

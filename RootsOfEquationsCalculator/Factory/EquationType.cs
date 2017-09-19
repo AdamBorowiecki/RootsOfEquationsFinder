@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace RootsOfEquationsCalculator.Factory
 {
-    public enum EquationType
+    /*public enum EquationType
     {
         Linear = 0,
         Square = 1,
         Cubic = 2
-    }
+    }*/
 }

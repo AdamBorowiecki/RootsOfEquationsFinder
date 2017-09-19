@@ -6,7 +6,7 @@ namespace RootsOfEquationsCalculator.Tests
 {
     public class EquationCalculatorFactoryTests
     {
-        [Theory]
+        /*[Theory]
         [InlineData(0, 0, 0, 0)]
         [InlineData(0, 0, 2, 1)]
         [InlineData(0, 0, 0, 1)]
@@ -43,6 +43,6 @@ namespace RootsOfEquationsCalculator.Tests
             EquationsCoefficients coefficients = new EquationsCoefficients(a, b, c, d);
             EquationCalculatorFactory factory = new EquationCalculatorFactory();
             Assert.IsType<CubicEquationCalculator>(factory.GetEquation(coefficients));
-        }
+        }*/
     }
 }

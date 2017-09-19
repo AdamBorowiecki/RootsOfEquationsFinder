@@ -7,21 +7,13 @@ namespace RootsOfEquationsCalculator.EquationsTypes
 {
     public class CubicEquationCalculator : IEquationCalculator
     {
-        private double a;//unknown x to the third power factor
-        private double b;//unknown x to the second power factor
-        private double c;//unknown X to the first power factor
-        private double d;//constant
-
-        public CubicEquationCalculator(double a, double b, double c, double d)
-        {
-            this.a = a;
-            this.b = b;
-            this.c = c;
-            this.d = d;
-        }
-
-        public IRootsResult CalculateRoots()
+        public IRootsResult CalculateRoots(EquationsCoefficients equationsCoefficients)
         {//equation format: ax3 + bx2 + cx + d ,  a ≠ 0
+            double a = equationsCoefficients.XToPower3;
+            double b = equationsCoefficients.XToPower2;
+            double c = equationsCoefficients.XToPower1;
+            double d = equationsCoefficients.Constant;
+
             if (Math.Abs(a) < double.Epsilon)
             {
                 throw new ArgumentException(

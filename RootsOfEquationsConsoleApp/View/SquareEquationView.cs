@@ -1,15 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using RootsOfEquationsCalculator;
+using RootsOfEquationsCalculator.EquationsTypes;
 
 namespace RootsOfEquationsConsoleApp.View
 {
     internal class SquareEquationView : EquationView
     {
-        protected override EquationsCoefficients ReadParameters()
+        public SquareEquationView(IEquationCalculator equationCalculator)
+        {
+            base.equationCalculator = equationCalculator;
+        }
+
+        internal override EquationsCoefficients ReadParameters()
         {
             Console.Write("Factor a = ");
             double a = Convert.ToDouble(Console.ReadLine());

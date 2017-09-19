@@ -7,7 +7,7 @@ namespace RootsOfEquationsCalculator.Tests
 {
     public class CubicEquationCalculatorTests
     {
-        [Theory]
+        /*[Theory]
         [InlineData(0, - 5, 8, - 6)]
         [InlineData(0, 2, 4, -6)]
         public void When_AValueIsZero_Expect_Exception_ThisEquationIsNotCubic(
@@ -52,6 +52,6 @@ namespace RootsOfEquationsCalculator.Tests
 
             Assert.Equal(rootsValues.Count(), cubicEquation.CalculateRoots().Count());
             Assert.Equal(rootsValues, cubicEquation.CalculateRoots());
-        }
+        }*/
     }
 }

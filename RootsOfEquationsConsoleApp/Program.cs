@@ -1,13 +1,16 @@
-﻿using RootsOfEquationsConsoleApp.View;
+﻿using Castle.Windsor;
+using RootsOfEquationsCalculator;
+using RootsOfEquationsConsoleApp.View;
 using System;
 
 namespace RootsOfEquationsConsoleApp
 {
     public class Program
     {
-   
         static void Main(string[] args)
         {
+            WindsorContainer iocContainer = IoCConfiguration.IocContainer;
+
             bool continueProgram = true;
 
             while (continueProgram)
@@ -18,9 +21,9 @@ namespace RootsOfEquationsConsoleApp
                 if (int.TryParse(Console.ReadLine(), out choose) &&
                     choose == 1 || choose == 2 || choose == 3)
                 {
-                    ViewFactory viewFactory = new ViewFactory();
-                    EquationView equationView = viewFactory.GetView(choose);
-                    equationView.Display();
+                    EquationView equationView = iocContainer.Resolve<EquationView>(choose.ToString());
+                    EquationsCoefficients equationsCoefficients = equationView.ReadParameters();
+                    equationView.DisplayResult(equationsCoefficients);
                 }
                 else
                 {

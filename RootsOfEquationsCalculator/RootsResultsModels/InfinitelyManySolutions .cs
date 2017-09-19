@@ -20,7 +20,7 @@ namespace RootsOfEquationsCalculator.RootsResultsModels
 
         public List<double> GetValues()
         {
-            throw new NotImplementedException();
+            return new List<double>(new double[int.MaxValue]);
         }
 
         public override bool Equals(object obj)
