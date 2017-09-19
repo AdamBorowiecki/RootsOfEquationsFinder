@@ -29,7 +29,7 @@ namespace RootsOfEquationsConsoleApp
             IocContainer.Register(
                 Component.For<IEquationCalculator>().
                     ImplementedBy<CalculatorType>().
-                        LifestyleSingleton());
+                        LifestyleTransient());
 
             IocContainer.Register(
                 Component.For<EquationView>().

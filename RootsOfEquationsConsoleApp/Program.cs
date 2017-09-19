@@ -44,7 +44,7 @@ namespace RootsOfEquationsConsoleApp
             Console.WriteLine("Cubic equation: 3");
         }
 
-        static bool IfContinue()
+        private static bool IfContinue()
         {
             Console.WriteLine("Do you want to continue?");
             Console.WriteLine("Yes - any key");
