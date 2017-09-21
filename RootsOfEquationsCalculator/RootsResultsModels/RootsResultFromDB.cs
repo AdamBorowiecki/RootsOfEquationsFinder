@@ -24,11 +24,11 @@ namespace RootsOfEquationsCalculator.RootsResultsModels
 
             if(isCalculatedbefore)
             {
-                whenValueWasCalculated += "Value is calculated before";
+                whenValueWasCalculated += "Value is calculated before ";
             }
             else
             {
-                whenValueWasCalculated += "Value is calculated now";
+                whenValueWasCalculated += "Value is calculated now ";
             }
 
             return whenValueWasCalculated + value;
