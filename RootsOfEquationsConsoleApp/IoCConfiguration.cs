@@ -38,26 +38,6 @@ namespace RootsOfEquationsConsoleApp
                           Dependency.OnValue("context", context)));
         }
 
-        private static void ConfigureForEquationCalculatorWithDB<CalculatorType, ViewType>(string resolveKey)
-            where CalculatorType : EquationCalculator
-            where ViewType : EquationView
-        {
-            IocContainer.Register(
-                Component.For<EquationCalculator>().
-                    ImplementedBy<CalculatorType>().
-                        LifestyleSingleton().
-                            DependsOn(
-                                Dependency.OnComponent<IRootsOfEquationsService, RootsOfEquationsService>(),
-                                Dependency.OnComponent<EquationCalculator, CalculatorType>()));
-
-            IocContainer.Register(
-                Component.For<EquationView>().
-                    ImplementedBy<ViewType>().
-                        Named(resolveKey).
-                            DependsOn(
-                                Dependency.OnComponent<EquationCalculator, CalculatorType>()));
-        }
-
         private static void ConfigureEquationsCalculatorWorkingWithDB()
         {
             ConfigureForDBCalcualtion<LinearEquationCalculatorDB, LinearEquationView>("1");
