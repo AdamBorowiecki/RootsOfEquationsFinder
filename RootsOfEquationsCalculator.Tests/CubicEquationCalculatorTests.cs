@@ -7,15 +7,15 @@ namespace RootsOfEquationsCalculator.Tests
 {
     public class CubicEquationCalculatorTests
     {
-        /*[Theory]
+        [Theory]
         [InlineData(0, - 5, 8, - 6)]
         [InlineData(0, 2, 4, -6)]
         public void When_AValueIsZero_Expect_Exception_ThisEquationIsNotCubic(
              double a, double b, double c, double d)
         {
-            CubicEquationCalculator cubicEquation = new CubicEquationCalculator(a, b, c, d);
+            CubicEquationCalculator cubicEquation = new CubicEquationCalculator();
 
-            Assert.Throws<ArgumentException>(() => cubicEquation.CalculateRoots());
+            Assert.Throws<ArgumentException>(() => cubicEquation.CalculateRoots(new EquationsCoefficients(a, b, c, d)));
         }
 
         [Theory]
@@ -25,9 +25,9 @@ namespace RootsOfEquationsCalculator.Tests
             double rootValue, double a, double b, double c, double d)
         {
             RootsValues root = new RootsValues(rootValue);
-            CubicEquationCalculator cubicEquation = new CubicEquationCalculator(a, b, c, d);
+            CubicEquationCalculator cubicEquation = new CubicEquationCalculator();
 
-            Assert.Equal(root, cubicEquation.CalculateRoots());
+            Assert.Equal(root, cubicEquation.CalculateRoots(new EquationsCoefficients(a, b, c, d)));
         }
 
         [Theory]
@@ -36,9 +36,9 @@ namespace RootsOfEquationsCalculator.Tests
             double rootValue, double a, double b, double c, double d)
         {
             RootsValues root = new RootsValues(rootValue);
-            CubicEquationCalculator cubicEquation = new CubicEquationCalculator(a, b, c, d);
+            CubicEquationCalculator cubicEquation = new CubicEquationCalculator();
 
-            Assert.Equal(root, cubicEquation.CalculateRoots());
+            Assert.Equal(root, cubicEquation.CalculateRoots(new EquationsCoefficients(a, b, c, d)));
         }
 
         [Theory]
@@ -48,10 +48,11 @@ namespace RootsOfEquationsCalculator.Tests
             double a, double b, double c, double d)
         {
             RootsValues rootsValues = new RootsValues(root1, root2, root3);
-            CubicEquationCalculator cubicEquation = new CubicEquationCalculator(a, b, c, d);
+            CubicEquationCalculator cubicEquation = new CubicEquationCalculator();
+            EquationsCoefficients equationsCoefficients = new EquationsCoefficients(a, b, c, d);
 
-            Assert.Equal(rootsValues.Count(), cubicEquation.CalculateRoots().Count());
-            Assert.Equal(rootsValues, cubicEquation.CalculateRoots());
-        }*/
+            Assert.Equal(rootsValues.Count(), cubicEquation.CalculateRoots(equationsCoefficients).Count());
+            Assert.Equal(rootsValues, cubicEquation.CalculateRoots(equationsCoefficients));
+        }
     }
 }

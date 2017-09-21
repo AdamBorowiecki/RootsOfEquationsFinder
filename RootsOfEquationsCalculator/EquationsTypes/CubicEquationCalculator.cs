@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace RootsOfEquationsCalculator.EquationsTypes
 {
-    public class CubicEquationCalculator : IEquationCalculator
+    public class CubicEquationCalculator : EquationCalculator
     {
         public override IRootsResult CalculateRoots(EquationsCoefficients equationsCoefficients)
         {//equation format: ax3 + bx2 + cx + d ,  a ≠ 0

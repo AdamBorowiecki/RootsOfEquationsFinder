@@ -6,7 +6,7 @@ namespace RootsOfEquationsConsoleApp.View
 {
     internal class LinearEquationView : EquationView
     {
-        public LinearEquationView(IEquationCalculator equationCalculator)
+        public LinearEquationView(EquationCalculator equationCalculator)
         {
             base.equationCalculator = equationCalculator;
         }

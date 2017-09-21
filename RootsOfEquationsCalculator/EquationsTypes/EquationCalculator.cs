@@ -2,7 +2,7 @@
 
 namespace RootsOfEquationsCalculator.EquationsTypes
 {
-    public abstract class IEquationCalculator
+    public abstract class EquationCalculator
     {
         abstract public IRootsResult CalculateRoots(EquationsCoefficients equationsCoefficients);
     }

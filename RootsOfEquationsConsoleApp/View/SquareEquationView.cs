@@ -6,7 +6,7 @@ namespace RootsOfEquationsConsoleApp.View
 {
     internal class SquareEquationView : EquationView
     {
-        public SquareEquationView(IEquationCalculator equationCalculator)
+        public SquareEquationView(EquationCalculator equationCalculator)
         {
             base.equationCalculator = equationCalculator;
         }

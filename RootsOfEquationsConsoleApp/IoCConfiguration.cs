@@ -21,6 +21,7 @@ namespace RootsOfEquationsConsoleApp
             ConfigureServices();
             //ConfigureEquations();
             ConfigureEquationsDB();
+            //ConfigureEquationsForDB();
         }
 
         private static void ConfigureDBContext()
@@ -47,6 +48,33 @@ namespace RootsOfEquationsConsoleApp
                                 OnValue("context", context)));
         }
 
+        private static void ConfigureEquationsForDB()
+        {
+            ConfigureForEquationCalculatorWithDB<LinearEquationCalculator, LinearEquationView>("1");
+            ConfigureForEquationCalculatorWithDB<SquareEquationCalculator, SquareEquationView>("2");
+            ConfigureForEquationCalculatorWithDB<CubicEquationCalculator, CubicEquationView>("3");
+        }
+
+        private static void ConfigureForEquationCalculatorWithDB<CalculatorType, ViewType>(string resolveKey)
+            where CalculatorType : EquationCalculator
+            where ViewType : EquationView
+        {
+            IocContainer.Register(
+                Component.For<EquationCalculator>().
+                    ImplementedBy<CalculatorType>().
+                        LifestyleSingleton().
+                            DependsOn(
+                                Dependency.OnComponent<IRootsOfEquationsService, RootsOfEquationsService>(),
+                                Dependency.OnComponent<EquationCalculator, CalculatorType>()));
+
+            IocContainer.Register(
+                Component.For<EquationView>().
+                    ImplementedBy<ViewType>().
+                        Named(resolveKey).
+                            DependsOn(
+                                Dependency.OnComponent<EquationCalculator, CalculatorType>()));
+        }
+
         private static void ConfigureEquationsDB()
         {
             ConfigureForDBCalcualtion<LinearEquationCalculatorDB, LinearEquationView>("1");
@@ -55,11 +83,11 @@ namespace RootsOfEquationsConsoleApp
         }
 
         private static void ConfigureForDBCalcualtion<CalculatorType, ViewType>(string resolveKey)
-            where CalculatorType : IEquationCalculator
+            where CalculatorType : EquationCalculator
             where ViewType : EquationView
         {
             IocContainer.Register(
-                Component.For<IEquationCalculator>().
+                Component.For<EquationCalculator>().
                     ImplementedBy<CalculatorType>().
                         LifestyleSingleton().
                             DependsOn(
@@ -70,10 +98,10 @@ namespace RootsOfEquationsConsoleApp
                     ImplementedBy<ViewType>().
                         Named(resolveKey).
                             DependsOn(
-                                Dependency.OnComponent<IEquationCalculator, CalculatorType>()));
+                                Dependency.OnComponent<EquationCalculator, CalculatorType>()));
         }
 
-        private static void ConfigureEquations()
+        /*private static void ConfigureEquations()
         {
             ConfigureFor<LinearEquationCalculator, LinearEquationView>("1");
             ConfigureFor<SquareEquationCalculator, SquareEquationView>("2");
@@ -81,11 +109,11 @@ namespace RootsOfEquationsConsoleApp
         }
 
         private static void ConfigureFor<CalculatorType, ViewType>(string resolveKey)
-            where CalculatorType : IEquationCalculator
+            where CalculatorType : EquationCalculator
             where ViewType : EquationView
         {
             IocContainer.Register(
-                Component.For<IEquationCalculator>().
+                Component.For<EquationCalculator>().
                     ImplementedBy<CalculatorType>().
                         LifestyleSingleton());
 
@@ -94,7 +122,7 @@ namespace RootsOfEquationsConsoleApp
                     ImplementedBy<ViewType>().
                         Named(resolveKey).
                             DependsOn(
-                                Dependency.OnComponent<IEquationCalculator, CalculatorType>()));
-        }
+                                Dependency.OnComponent<EquationCalculator, CalculatorType>()));
+        }*/
     }
 }

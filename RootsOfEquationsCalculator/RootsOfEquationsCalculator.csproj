@@ -124,10 +124,11 @@
     <Compile Include="DAL\ResultOfRootsCalculation.cs" />
     <Compile Include="DAL\RootsOfEquationsDBContext.cs" />
     <Compile Include="DAL\RootsOfEquationsService.cs" />
-    <Compile Include="EquationsTypes\IEquationCalculator.cs" />
+    <Compile Include="EquationsTypes\EquationCalculator.cs" />
     <Compile Include="EquationsTypes\LinearEquationCalculator.cs" />
     <Compile Include="EquationsTypes\CubicEquationCalculator.cs" />
     <Compile Include="EquationsTypes\CubicEquationCalculatorDB.cs" />
+    <Compile Include="EquationsTypes\EquationCalculatorWithDB.cs" />
     <Compile Include="EquationsTypes\SquareEquationCalculatorDB.cs" />
     <Compile Include="EquationsTypes\LinearEquationCalculatorDB.cs" />
     <Compile Include="EquationsTypes\SquareEquationCalculator.cs" />

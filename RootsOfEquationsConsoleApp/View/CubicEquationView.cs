@@ -6,7 +6,7 @@ namespace RootsOfEquationsConsoleApp.View
 {
     internal class CubicEquationView : EquationView
     {
-        public CubicEquationView(IEquationCalculator equationCalculator)
+        public CubicEquationView(EquationCalculator equationCalculator)
         {
             base.equationCalculator = equationCalculator;
         }

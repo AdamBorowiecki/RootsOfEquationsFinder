@@ -7,7 +7,7 @@ namespace RootsOfEquationsConsoleApp.View
 {
     internal abstract class EquationView
     {
-        protected IEquationCalculator equationCalculator;
+        protected EquationCalculator equationCalculator;
 
         internal abstract EquationsCoefficients ReadParameters();
 

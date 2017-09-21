@@ -7,14 +7,14 @@ namespace RootsOfEquationsCalculator.Tests
 {
     public class LinearEquationCalculatorTests
     {
-        /*[Fact]
+        [Fact]
         public void When_AIsZeroAndBIsZero_Expect_InfinitelyManySolutions()
         {
             InfinitelyManySolutions infinitelyManySolutions =
                 new InfinitelyManySolutions();
-            LinearEquationCalculator linearEquation = new LinearEquationCalculator(0, 0);
+            LinearEquationCalculator linearEquation = new LinearEquationCalculator();
 
-            Assert.Equal(infinitelyManySolutions, linearEquation.CalculateRoots());
+            Assert.Equal(infinitelyManySolutions, linearEquation.CalculateRoots(new EquationsCoefficients(0, 0)));
         }
 
         [Theory]
@@ -25,9 +25,9 @@ namespace RootsOfEquationsCalculator.Tests
             double a, double b)
         {
             NoRealSolutions noRealSolutions = new NoRealSolutions();;
-            LinearEquationCalculator linearEquation = new LinearEquationCalculator(a, b);
+            LinearEquationCalculator linearEquation = new LinearEquationCalculator();
         
-            Assert.Equal(noRealSolutions, linearEquation.CalculateRoots());            
+            Assert.Equal(noRealSolutions, linearEquation.CalculateRoots(new EquationsCoefficients(a, b)));            
         }
 
         [Theory]
@@ -38,8 +38,8 @@ namespace RootsOfEquationsCalculator.Tests
             double expect, double a, double b)
         {
             RootsValues expectedValues = new RootsValues(expect);
-            LinearEquationCalculator linearEquation = new LinearEquationCalculator(a, b);
-            Assert.Equal(expectedValues, linearEquation.CalculateRoots());
-        }*/
+            LinearEquationCalculator linearEquation = new LinearEquationCalculator();
+            Assert.Equal(expectedValues, linearEquation.CalculateRoots(new EquationsCoefficients(a, b)));
+        }
     }
 }

@@ -4,7 +4,7 @@ using RootsOfEquationsCalculator.RootsResultsModels;
 
 namespace RootsOfEquationsCalculator.EquationsTypes
 {
-    public class LinearEquationCalculator : IEquationCalculator
+    public class LinearEquationCalculator : EquationCalculator
     {
         public override IRootsResult CalculateRoots(EquationsCoefficients equationsCoefficients)
         {

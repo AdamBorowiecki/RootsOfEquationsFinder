@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace RootsOfEquationsCalculator.EquationsTypes
 {
-    public class SquareEquationCalculator : IEquationCalculator
+    public class SquareEquationCalculator : EquationCalculator
     {
         public override IRootsResult CalculateRoots(EquationsCoefficients equationsCoefficients)
         {//equation format: ax2 + bx + c = 0

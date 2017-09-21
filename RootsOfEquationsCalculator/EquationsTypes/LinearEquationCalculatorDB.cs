@@ -22,17 +22,19 @@ namespace RootsOfEquationsCalculator.EquationsTypes
 
         public override IRootsResult CalculateRoots(EquationsCoefficients equationsCoefficients)
         {
-            if(service.IsCalcualtedBefore(equationsCoefficients))
+            bool isCalcualtedBefore = service.IsCalcualtedBefore(equationsCoefficients);
+
+            if (isCalcualtedBefore)
             {
-                Console.WriteLine("IsCalcualtedBefore");
                 return new RootsResultFromDB(
+                    isCalcualtedBefore,
                     service.ReadResult(equationsCoefficients));//to_do Single mathod need try... catch...
             }
-            Console.WriteLine("Is calculated now");
+
             IRootsResult result = base.CalculateRoots(equationsCoefficients);
             service.Add(equationsCoefficients, result);
 
-            return result;
+            return new RootsResultFromDB(isCalcualtedBefore, result.ToString());
         }
     }
 }
