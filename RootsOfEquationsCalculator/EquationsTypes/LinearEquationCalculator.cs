@@ -1,11 +1,12 @@
-﻿using RootsOfEquationsCalculator.Models;
+﻿using RootsOfEquations.DAL;
+using RootsOfEquationsCalculator.Models;
 using RootsOfEquationsCalculator.RootsResultsModels;
 
 namespace RootsOfEquationsCalculator.EquationsTypes
 {
     public class LinearEquationCalculator : IEquationCalculator
     {
-        public IRootsResult CalculateRoots(EquationsCoefficients equationsCoefficients)
+        public override IRootsResult CalculateRoots(EquationsCoefficients equationsCoefficients)
         {
             double a = equationsCoefficients.XToPower1;
             double b = equationsCoefficients.Constant;

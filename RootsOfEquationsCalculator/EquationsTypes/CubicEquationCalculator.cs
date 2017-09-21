@@ -7,7 +7,7 @@ namespace RootsOfEquationsCalculator.EquationsTypes
 {
     public class CubicEquationCalculator : IEquationCalculator
     {
-        public IRootsResult CalculateRoots(EquationsCoefficients equationsCoefficients)
+        public override IRootsResult CalculateRoots(EquationsCoefficients equationsCoefficients)
         {//equation format: ax3 + bx2 + cx + d ,  a ≠ 0
             double a = equationsCoefficients.XToPower3;
             double b = equationsCoefficients.XToPower2;

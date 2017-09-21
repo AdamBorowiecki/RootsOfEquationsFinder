@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 
 namespace RootsOfEquationsCalculator.EquationsTypes
 {
-    public class LinearEquationCalculatorDB : LinearEquationCalculator
+    public class CubicEquationCalculatorDB : CubicEquationCalculator
     {
         private IRootsOfEquationsService service;
 
-        public LinearEquationCalculatorDB(
+        public CubicEquationCalculatorDB(
             IRootsOfEquationsService service)
         {
             this.service = service;

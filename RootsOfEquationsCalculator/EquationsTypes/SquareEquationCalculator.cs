@@ -6,7 +6,7 @@ namespace RootsOfEquationsCalculator.EquationsTypes
 {
     public class SquareEquationCalculator : IEquationCalculator
     {
-        public IRootsResult CalculateRoots(EquationsCoefficients equationsCoefficients)
+        public override IRootsResult CalculateRoots(EquationsCoefficients equationsCoefficients)
         {//equation format: ax2 + bx + c = 0
             double a = equationsCoefficients.XToPower2;
             double b = equationsCoefficients.XToPower1;

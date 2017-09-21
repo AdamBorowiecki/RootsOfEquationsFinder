@@ -2,9 +2,8 @@
 
 namespace RootsOfEquationsCalculator.EquationsTypes
 {
-    public interface IEquationCalculator
+    public abstract class IEquationCalculator
     {
-        IRootsResult CalculateRoots(EquationsCoefficients equationsCoefficients);
-        string ToString();
+        abstract public IRootsResult CalculateRoots(EquationsCoefficients equationsCoefficients);
     }
 }

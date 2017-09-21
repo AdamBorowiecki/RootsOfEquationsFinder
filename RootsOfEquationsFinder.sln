@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RootsOfEquationsCalculator.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RootsOfEquationsConsoleApp", "RootsOfEquationsConsoleApp\RootsOfEquationsConsoleApp.csproj", "{12F130DF-A600-42EB-9723-0943EF2C6F96}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RootsOfEquations.DAL", "RootsOfEquations.DAL\RootsOfEquations.DAL.csproj", "{D56C3F70-EED8-4DB5-A9D9-C5E3D2A4F73E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{12F130DF-A600-42EB-9723-0943EF2C6F96}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12F130DF-A600-42EB-9723-0943EF2C6F96}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{12F130DF-A600-42EB-9723-0943EF2C6F96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D56C3F70-EED8-4DB5-A9D9-C5E3D2A4F73E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D56C3F70-EED8-4DB5-A9D9-C5E3D2A4F73E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D56C3F70-EED8-4DB5-A9D9-C5E3D2A4F73E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D56C3F70-EED8-4DB5-A9D9-C5E3D2A4F73E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
