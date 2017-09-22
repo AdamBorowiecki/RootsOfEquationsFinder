@@ -7,7 +7,7 @@ using Xunit;
 
 namespace RootsOfEquationsCalculator.Tests.EquationCalculatorWorkingWithDBTests
 {
-    public class LinearEquationCalculatorWithDB
+    public class EquationCalculatorWorkingWithDBTests
     {
         [Theory]
         [InlineData(-2.5, 2, 5)]
@@ -22,11 +22,14 @@ namespace RootsOfEquationsCalculator.Tests.EquationCalculatorWorkingWithDBTests
             Mock<IRootsOfEquationsService> mockService = new Mock<IRootsOfEquationsService>();
             mockService.Setup(x => x.IsCalcualtedBefore(coefficients)).Returns(false);
             mockService.Setup(x => x.Add(coefficients, expectedRoots));
-
             IRootsOfEquationsService service = mockService.Object;
 
+            Mock<EquationCalculator> mockCalculator = new Mock<EquationCalculator>();
+            mockCalculator.Setup(x => x.CalculateRoots(coefficients)).Returns(expectedRoots);
+            EquationCalculator calculator = mockCalculator.Object;
+
             EquationCalculatorWorkingWithDB calculatorWorkingWithDB =
-                new EquationCalculatorWorkingWithDB(service, new LinearEquationCalculator());
+                new EquationCalculatorWorkingWithDB(service, calculator);
 
             RootsResultFromDB expectedResult = 
                 new RootsResultFromDB(service.IsCalcualtedBefore(coefficients), expectedRoots.ToString());
@@ -51,11 +54,14 @@ namespace RootsOfEquationsCalculator.Tests.EquationCalculatorWorkingWithDBTests
             Mock<IRootsOfEquationsService> mockService = new Mock<IRootsOfEquationsService>();
             mockService.Setup(x => x.IsCalcualtedBefore(coefficients)).Returns(true);
             mockService.Setup(x => x.ReadResult(coefficients)).Returns(expectedRoots.ToString());
-
             IRootsOfEquationsService service = mockService.Object;
-            
+
+            Mock<EquationCalculator> mockCalculator = new Mock<EquationCalculator>();
+            mockCalculator.Setup(x => x.CalculateRoots(coefficients)).Returns(expectedRoots);
+            EquationCalculator calculator = mockCalculator.Object;
+
             EquationCalculatorWorkingWithDB calculatorWorkingWithDB =
-                new EquationCalculatorWorkingWithDB(service, new LinearEquationCalculator());
+                new EquationCalculatorWorkingWithDB(service, calculator);
 
             RootsResultFromDB expectedResult =
                 new RootsResultFromDB(service.IsCalcualtedBefore(coefficients), expectedRoots.ToString());
