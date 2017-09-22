@@ -119,7 +119,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAL\CoefficientsOfCalculatedEquations.cs" />
     <Compile Include="DAL\IRootsOfEquationsService.cs" />
     <Compile Include="DAL\ResultOfRootsCalculation.cs" />
     <Compile Include="DAL\RootsOfEquationsDBContext.cs" />

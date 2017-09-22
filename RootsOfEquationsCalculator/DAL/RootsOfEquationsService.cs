@@ -1,12 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using RootsOfEquationsCalculator;
+﻿using RootsOfEquationsCalculator;
 using RootsOfEquationsCalculator.DAL;
 using RootsOfEquationsCalculator.Models;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RootsOfEquations.DAL
 {

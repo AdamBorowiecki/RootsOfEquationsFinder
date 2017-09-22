@@ -25,7 +25,7 @@ namespace RootsOfEquationsCalculator.EquationsTypes
             {
                 return new RootsResultFromDB(
                     isCalcualtedBefore,
-                    service.ReadResult(equationsCoefficients));//to_do Single mathod need try... catch...
+                    service.ReadResult(equationsCoefficients));
             }
 
             IRootsResult result = equationCalculator.CalculateRoots(equationsCoefficients);
