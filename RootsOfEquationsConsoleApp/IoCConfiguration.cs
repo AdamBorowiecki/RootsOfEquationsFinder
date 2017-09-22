@@ -5,6 +5,8 @@ using RootsOfEquationsConsoleApp.View;
 using Microsoft.EntityFrameworkCore;
 using RootsOfEquations.DAL;
 using RootsOfEquationsCalculator.DAL;
+using System;
+using Castle.MicroKernel.Resolvers.SpecializedResolvers;
 
 namespace RootsOfEquationsConsoleApp
 {
@@ -18,7 +20,7 @@ namespace RootsOfEquationsConsoleApp
             IocContainer = new WindsorContainer();
             ConfigureDBContext();
             ConfigureServices();
-            ConfigureEquationsCalculatorWorkingWithDB();
+            ConfigureViewWithCalcualtor();
         }
 
         private static void ConfigureDBContext()
@@ -38,30 +40,20 @@ namespace RootsOfEquationsConsoleApp
                           Dependency.OnValue("context", context)));
         }
 
-        private static void ConfigureEquationsCalculatorWorkingWithDB()
+        private static void ConfigureViewWithCalcualtor()
         {
-            ConfigureForDBCalcualtion<LinearEquationCalculatorDB, LinearEquationView>("1");
-            ConfigureForDBCalcualtion<SquareEquationCalculatorDB, SquareEquationView>("2");
-            ConfigureForDBCalcualtion<CubicEquationCalculatorDB, CubicEquationView>("3");
-        }
-
-        private static void ConfigureForDBCalcualtion<CalculatorType, ViewType>(string resolveKey)
-            where CalculatorType : EquationCalculator
-            where ViewType : EquationView
-        {
-            IocContainer.Register(
-                Component.For<EquationCalculator>().
-                    ImplementedBy<CalculatorType>().
-                        LifestyleSingleton().
-                            DependsOn(
-                                Dependency.OnComponent<IRootsOfEquationsService, RootsOfEquationsService>()));
+            var service = IocContainer.Resolve<IRootsOfEquationsService>();
 
             IocContainer.Register(
                 Component.For<EquationView>().
-                    ImplementedBy<ViewType>().
-                        Named(resolveKey).
-                            DependsOn(
-                                Dependency.OnComponent<EquationCalculator, CalculatorType>()));
+                    Instance(new LinearEquationView(
+                        new EquationCalculatorWithDB(service, new LinearEquationCalculator()))).Named("1"),
+                Component.For<EquationView>().
+                    Instance(new SquareEquationView(
+                        new EquationCalculatorWithDB(service, new SquareEquationCalculator()))).Named("2"),
+                Component.For<EquationView>().
+                    Instance(new CubicEquationView(
+                        new EquationCalculatorWithDB(service, new CubicEquationCalculator()))).Named("3"));
         }
     }
 }

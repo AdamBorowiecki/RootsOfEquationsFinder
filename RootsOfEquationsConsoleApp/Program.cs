@@ -1,5 +1,6 @@
 ﻿using Castle.Windsor;
 using RootsOfEquationsCalculator;
+using RootsOfEquationsCalculator.EquationsTypes;
 using RootsOfEquationsConsoleApp.View;
 using System;
 

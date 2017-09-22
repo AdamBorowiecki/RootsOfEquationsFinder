@@ -56,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CubicEquationCalculatorTests.cs" />
+    <Compile Include="LinearEquationCalculatorDBTests.cs" />
     <Compile Include="LinearEquationCalculatorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SquareEquationCalculatorTests.cs" />
