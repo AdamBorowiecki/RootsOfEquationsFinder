@@ -10,7 +10,6 @@ namespace RootsOfEquationsCalculator.DAL
     public class ResultOfRootsCalculation
     {
         public int Id { get; set; }
-        //public EquationsCoefficients Coefficients { get; set; }
         public double XToPower3 { get; set; }
         public double XToPower2 { get; set; }
         public double XToPower1 { get; set; }

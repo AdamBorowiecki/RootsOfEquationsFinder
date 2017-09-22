@@ -50,8 +50,6 @@ namespace RootsOfEquations.DAL
                              r.XToPower2 == coefficients.XToPower2 &&
                              r.XToPower1 == coefficients.XToPower1 &&
                              r.Constant == coefficients.Constant).Result;
-            /*return context.ResultOfRootsCalculations
-                .Select(r => r.Coefficients.Equals(coefficients));*/
         }
     }
 }

@@ -5,8 +5,6 @@ using RootsOfEquationsConsoleApp.View;
 using Microsoft.EntityFrameworkCore;
 using RootsOfEquations.DAL;
 using RootsOfEquationsCalculator.DAL;
-using System;
-using Castle.MicroKernel.Resolvers.SpecializedResolvers;
 
 namespace RootsOfEquationsConsoleApp
 {

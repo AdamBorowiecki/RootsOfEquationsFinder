@@ -1,16 +1,5 @@
-﻿//using Microsoft.Data.Entity;
-//using Microsoft.Data.Entity.Infrastructure;
-using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using RootsOfEquationsCalculator.DAL;
-using RootsOfEquationsCalculator;
-//using Microsoft.Data.Entity;
-//using Microsoft.Data.Entity.Infrastructure;
 
 namespace RootsOfEquations.DAL
 {
