@@ -1,21 +1,15 @@
-﻿using RootsOfEquations.DAL;
-using RootsOfEquationsCalculator.DAL;
+﻿using RootsOfEquationsCalculator.DAL;
 using RootsOfEquationsCalculator.Models;
 using RootsOfEquationsCalculator.RootsResultsModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RootsOfEquationsCalculator.EquationsTypes
 {
-    public class EquationCalculatorWithDB : EquationCalculator
+    public class EquationCalculatorWorkingWithDB : EquationCalculator
     {
         private IRootsOfEquationsService service;
         private EquationCalculator equationCalculator;
 
-        public EquationCalculatorWithDB(
+        public EquationCalculatorWorkingWithDB(
             IRootsOfEquationsService service,
             EquationCalculator equationCalculator)
         {

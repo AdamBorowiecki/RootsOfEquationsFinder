@@ -23,19 +23,6 @@ namespace RootsOfEquations.DAL
         }
 
         public DbSet<ResultOfRootsCalculation> ResultOfRootsCalculations { get; set; }
-        //public DbSet<EquationsCoefficients> EquationsCoefficients { get; set; }
-        /*public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddDbContext<RootsOfEquationsDBContext>(opt => opt.UseMemoryCache());
-
-            //services.AddMvc();
-        }*/
-        /*public void test()
-        {
-            var optionsBuilder = new DbContextOptionsBuilder();
-            optionsBuilder.UseInMemoryDatabase();
-
-        }*/
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

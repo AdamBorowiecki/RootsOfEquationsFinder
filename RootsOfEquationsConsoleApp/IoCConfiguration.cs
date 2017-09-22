@@ -47,13 +47,13 @@ namespace RootsOfEquationsConsoleApp
             IocContainer.Register(
                 Component.For<EquationView>().
                     Instance(new LinearEquationView(
-                        new EquationCalculatorWithDB(service, new LinearEquationCalculator()))).Named("1"),
+                        new EquationCalculatorWorkingWithDB(service, new LinearEquationCalculator()))).Named("1"),
                 Component.For<EquationView>().
                     Instance(new SquareEquationView(
-                        new EquationCalculatorWithDB(service, new SquareEquationCalculator()))).Named("2"),
+                        new EquationCalculatorWorkingWithDB(service, new SquareEquationCalculator()))).Named("2"),
                 Component.For<EquationView>().
                     Instance(new CubicEquationView(
-                        new EquationCalculatorWithDB(service, new CubicEquationCalculator()))).Named("3"));
+                        new EquationCalculatorWorkingWithDB(service, new CubicEquationCalculator()))).Named("3"));
         }
     }
 }
