@@ -112,6 +112,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\RootOfEquations.Models\RootOfEquations.Models.csproj">
+      <Project>{f43ef187-e513-4bd3-a7f8-d7ab05f5aef1}</Project>
+      <Name>RootOfEquations.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RootsOfEquations.DAL\RootsOfEquations.DAL.csproj">
+      <Project>{d56c3f70-eed8-4db5-a9d9-c5e3d2a4f73e}</Project>
+      <Name>RootsOfEquations.DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RootsOfEquationsCalculator\RootsOfEquationsCalculator.csproj">
       <Project>{0f2e2da6-b616-47e5-ba47-cf2c93939f72}</Project>
       <Name>RootsOfEquationsCalculator</Name>
