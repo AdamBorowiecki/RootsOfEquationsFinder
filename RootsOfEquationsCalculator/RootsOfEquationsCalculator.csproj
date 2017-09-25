@@ -126,10 +126,7 @@
     <Compile Include="EquationsTypes\EquationCalculator.cs" />
     <Compile Include="EquationsTypes\LinearEquationCalculator.cs" />
     <Compile Include="EquationsTypes\CubicEquationCalculator.cs" />
-    <Compile Include="EquationsTypes\CubicEquationCalculatorDB.cs" />
     <Compile Include="EquationsTypes\EquationCalculatorWorkingWithDB.cs" />
-    <Compile Include="EquationsTypes\SquareEquationCalculatorDB.cs" />
-    <Compile Include="EquationsTypes\LinearEquationCalculatorDB.cs" />
     <Compile Include="EquationsTypes\SquareEquationCalculator.cs" />
     <Compile Include="EquationsCoefficients.cs" />
     <Compile Include="Mathematic\Operations.cs" />

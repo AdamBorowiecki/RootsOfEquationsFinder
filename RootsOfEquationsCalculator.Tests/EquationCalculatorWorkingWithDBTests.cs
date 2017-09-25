@@ -33,6 +33,7 @@ namespace RootsOfEquationsCalculator.Tests.EquationCalculatorWorkingWithDBTests
 
             RootsResultFromDB expectedResult = 
                 new RootsResultFromDB(service.IsCalcualtedBefore(coefficients), expectedRoots.ToString());
+
             IRootsResult actualResult = calculatorWorkingWithDB.CalculateRoots(coefficients);
 
             mockService.Verify(m => m.IsCalcualtedBefore(coefficients));
