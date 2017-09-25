@@ -55,12 +55,13 @@ namespace RootsOfEquationsCalculator.Tests.EquationCalculatorWorkingWithDBTests
                 new EquationCalculatorWorkingWithDB(service, new LinearEquationCalculator());
 
             RootsResultFromDB expectedResult =
-                new RootsResultFromDB(service.IsCalcualtedBefore(coefficients), noRealSolutions.ToString());
+                new RootsResultFromDB(true, noRealSolutions.ToString());
 
             IRootsResult actualResult = calculatorWorkingWithDB.CalculateRoots(coefficients);
 
             mockService.Verify(m => m.IsCalcualtedBefore(coefficients));
             mockService.Verify(m => m.ReadResult(coefficients));
+            mockService.Verify(m => m.Add(null, null), Times.Never);
 
             Assert.Equal(expectedResult, actualResult);
         }
@@ -84,12 +85,13 @@ namespace RootsOfEquationsCalculator.Tests.EquationCalculatorWorkingWithDBTests
                 new EquationCalculatorWorkingWithDB(service, new LinearEquationCalculator());
 
             RootsResultFromDB expectedResult =
-                new RootsResultFromDB(service.IsCalcualtedBefore(coefficients), expectedValues.ToString());
+                new RootsResultFromDB(true, expectedValues.ToString());
 
             IRootsResult actualResult = calculatorWorkingWithDB.CalculateRoots(coefficients);
 
             mockService.Verify(m => m.IsCalcualtedBefore(coefficients));
             mockService.Verify(m => m.ReadResult(coefficients));
+            mockService.Verify(m => m.Add(null, null), Times.Never);
 
             Assert.Equal(expectedResult, actualResult);
         }
