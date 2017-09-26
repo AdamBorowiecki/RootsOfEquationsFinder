@@ -1,8 +1,6 @@
 ﻿using Castle.MicroKernel.Registration;
 using Castle.Windsor;
 using Microsoft.EntityFrameworkCore;
-
-//using System.Data.Entity;
 using RootsOfEquations.DAL;
 using RootsOfEquationsCalculator.DAL;
 using RootsOfEquationsCalculator.EquationsTypes;
