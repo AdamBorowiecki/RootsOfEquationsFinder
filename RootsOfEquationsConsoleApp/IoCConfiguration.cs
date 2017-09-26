@@ -3,6 +3,7 @@ using Castle.Windsor;
 using RootsOfEquationsCalculator.EquationsTypes;
 using RootsOfEquationsConsoleApp.View;
 using Microsoft.EntityFrameworkCore;
+//using System.Data.Entity;
 using RootsOfEquations.DAL;
 using RootsOfEquationsCalculator.DAL;
 
@@ -11,7 +12,7 @@ namespace RootsOfEquationsConsoleApp
     internal static class IoCConfiguration
     {
         public static WindsorContainer IocContainer { get; private set; }
-        private static RootsOfEquationsDBContext context;
+        private static DbContext context;
 
         static IoCConfiguration()
         {
@@ -23,9 +24,17 @@ namespace RootsOfEquationsConsoleApp
 
         private static void ConfigureDBContext()
         {
+            //For InMemory database
             var dbOptions = new DbContextOptionsBuilder<RootsOfEquationsDBContext>()
                  .UseInMemoryDatabase(databaseName: "Calculate_result")
                     .Options;
+
+            //Uncomment to use read database
+            /*string connectionString =
+                @"Data Source=(localdb)\mssqllocaldb;Initial Catalog=ResultOfRootsCalculation;Integrated Security=True";
+            var dbOptions = new DbContextOptionsBuilder<RootsOfEquationsDBContext>()
+                 .UseSqlServer(connectionString)
+                 .Options;*/
 
             context = new RootsOfEquationsDBContext(dbOptions);
         }

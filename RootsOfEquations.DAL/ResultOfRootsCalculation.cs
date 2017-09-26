@@ -1,7 +1,12 @@
-﻿namespace RootsOfEquationsCalculator.DAL
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace RootsOfEquationsCalculator.DAL
 {
     public class ResultOfRootsCalculation
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public double XToPower3 { get; set; }
         public double XToPower2 { get; set; }
