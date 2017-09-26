@@ -20,20 +20,20 @@ namespace RootsOfEquationsCalculator.Tests
         [Theory]
         [InlineData(0, 5)]
         [InlineData(0, 2)]
-        [InlineData(0, - 5)]
+        [InlineData(0, -5)]
         public void When_AIsZeroAndBIsNotZero_Expect_NoRealSolutions(
             double a, double b)
         {
-            NoRealSolutions noRealSolutions = new NoRealSolutions();;
+            NoRealSolutions noRealSolutions = new NoRealSolutions(); ;
             LinearEquationCalculator linearEquation = new LinearEquationCalculator();
-        
-            Assert.Equal(noRealSolutions, linearEquation.CalculateRoots(new EquationsCoefficients(a, b)));            
+
+            Assert.Equal(noRealSolutions, linearEquation.CalculateRoots(new EquationsCoefficients(a, b)));
         }
 
         [Theory]
         [InlineData(-2.5, 2, 5)]
         [InlineData(2, 1, -2)]
-        [InlineData(-0.5, 1.0/3, 1.0/6)]
+        [InlineData(-0.5, 1.0 / 3, 1.0 / 6)]
         public void When_AIsZeroAndBIsNotZero_Expect_OneSolution(
             double expect, double a, double b)
         {

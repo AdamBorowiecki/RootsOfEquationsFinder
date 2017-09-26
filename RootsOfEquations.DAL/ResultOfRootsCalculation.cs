@@ -8,6 +8,7 @@ namespace RootsOfEquationsCalculator.DAL
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+
         public double XToPower3 { get; set; }
         public double XToPower2 { get; set; }
         public double XToPower1 { get; set; }

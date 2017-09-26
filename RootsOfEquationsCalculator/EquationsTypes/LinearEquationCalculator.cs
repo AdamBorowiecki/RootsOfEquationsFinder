@@ -1,5 +1,4 @@
-﻿using RootsOfEquations.DAL;
-using RootsOfEquationsCalculator.Models;
+﻿using RootsOfEquationsCalculator.Models;
 using RootsOfEquationsCalculator.RootsResultsModels;
 
 namespace RootsOfEquationsCalculator.EquationsTypes
@@ -21,7 +20,7 @@ namespace RootsOfEquationsCalculator.EquationsTypes
                 return new NoRealSolutions();
             }
 
-            return new RootsValues(- b / a);
+            return new RootsValues(-b / a);
         }
     }
 }

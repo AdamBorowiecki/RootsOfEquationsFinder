@@ -1,11 +1,12 @@
 ﻿using Castle.MicroKernel.Registration;
 using Castle.Windsor;
-using RootsOfEquationsCalculator.EquationsTypes;
-using RootsOfEquationsConsoleApp.View;
 using Microsoft.EntityFrameworkCore;
+
 //using System.Data.Entity;
 using RootsOfEquations.DAL;
 using RootsOfEquationsCalculator.DAL;
+using RootsOfEquationsCalculator.EquationsTypes;
+using RootsOfEquationsConsoleApp.View;
 
 namespace RootsOfEquationsConsoleApp
 {
@@ -29,7 +30,7 @@ namespace RootsOfEquationsConsoleApp
                  .UseInMemoryDatabase(databaseName: "Calculate_result")
                     .Options;
 
-            //Uncomment to use read database
+            //Uncomment to use real database
             /*string connectionString =
                 @"Data Source=(localdb)\mssqllocaldb;Initial Catalog=ResultOfRootsCalculation;Integrated Security=True";
             var dbOptions = new DbContextOptionsBuilder<RootsOfEquationsDBContext>()

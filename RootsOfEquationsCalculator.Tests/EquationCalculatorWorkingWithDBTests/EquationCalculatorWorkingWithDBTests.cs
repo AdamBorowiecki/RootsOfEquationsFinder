@@ -31,7 +31,7 @@ namespace RootsOfEquationsCalculator.Tests.EquationCalculatorWorkingWithDBTests
             EquationCalculatorWorkingWithDB calculatorWorkingWithDB =
                 new EquationCalculatorWorkingWithDB(service, calculator);
 
-            RootsResultFromDB expectedResult = 
+            RootsResultFromDB expectedResult =
                 new RootsResultFromDB(false, expectedRoots.ToString());
 
             IRootsResult actualResult = calculatorWorkingWithDB.CalculateRoots(coefficients);
@@ -74,7 +74,7 @@ namespace RootsOfEquationsCalculator.Tests.EquationCalculatorWorkingWithDBTests
             mockService.Verify(m => m.ReadResult(coefficients));
             mockService.Verify(m => m.Add(null, null), Times.Never);
 
-            Assert.Equal(expectedResult, actualResult);       
+            Assert.Equal(expectedResult, actualResult);
         }
     }
 }

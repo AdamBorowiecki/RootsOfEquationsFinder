@@ -18,7 +18,7 @@ namespace RootsOfEquationsCalculator
             }
             else // value < 0
             {
-                return - Math.Pow(Math.Abs(value), power);
+                return -Math.Pow(Math.Abs(value), power);
             }
         }
     }

@@ -14,11 +14,11 @@ namespace RootsOfEquationsCalculator.EquationsTypes
 
             double delta = Math.Pow(b, 2) - 4 * a * c;
 
-            if(delta > 0)
+            if (delta > 0)
             {
                 return TwoRoots(a, b, delta);
             }
-            else if(delta == 0)
+            else if (delta == 0)
             {
                 return OneRoot(a, b);
             }
@@ -32,10 +32,10 @@ namespace RootsOfEquationsCalculator.EquationsTypes
         {
             List<double> roots = new List<double>();
 
-            double root1 = (- b - Math.Sqrt(delta)) / (2 * a);
+            double root1 = (-b - Math.Sqrt(delta)) / (2 * a);
             roots.Add(root1);
 
-            double root2 = (- b + Math.Sqrt(delta)) / (2 * a);
+            double root2 = (-b + Math.Sqrt(delta)) / (2 * a);
             roots.Add(root2);
 
             return new RootsValues(roots);
@@ -43,7 +43,7 @@ namespace RootsOfEquationsCalculator.EquationsTypes
 
         private RootsValues OneRoot(double a, double b)
         {
-            return new RootsValues(- b / (2 * a));
+            return new RootsValues(-b / (2 * a));
         }
     }
 }

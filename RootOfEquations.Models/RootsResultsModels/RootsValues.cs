@@ -14,7 +14,7 @@ namespace RootsOfEquationsCalculator.Models
 
         public RootsValues(double root1, double root2)
         {
-            roots = new List<double>() { root1, root2};
+            roots = new List<double>() { root1, root2 };
         }
 
         public RootsValues(double root1, double root2, double root3)
@@ -31,7 +31,7 @@ namespace RootsOfEquationsCalculator.Models
         {
             string result = "";
 
-            foreach(double root in roots)
+            foreach (double root in roots)
             {
                 result += " x = " + root;
             }
@@ -51,7 +51,7 @@ namespace RootsOfEquationsCalculator.Models
 
         public override bool Equals(object obj)
         {
-            if(obj is RootsValues)
+            if (obj is RootsValues)
             {
                 RootsValues other = (RootsValues)obj;
                 return Enumerable.SequenceEqual(

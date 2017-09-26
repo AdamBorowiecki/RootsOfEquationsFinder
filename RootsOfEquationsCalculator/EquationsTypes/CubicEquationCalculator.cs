@@ -21,7 +21,7 @@ namespace RootsOfEquationsCalculator.EquationsTypes
             }
 
             double f = (c / a) - (Math.Pow(b, 2) / (3 * Math.Pow(a, 2)));
-            double g = 
+            double g =
                 (2 * Math.Pow(b, 3)) / (27 * Math.Pow(a, 3)) -
                 (b * c) / (3 * Math.Pow(a, 2)) +
                 d / a;
@@ -29,11 +29,11 @@ namespace RootsOfEquationsCalculator.EquationsTypes
                 (Math.Pow(g, 2) / 4) +
                 (Math.Pow(f, 3) / 27);
 
-            if(h >= double.Epsilon)
+            if (h >= double.Epsilon)
             {
                 return SingleRoot(a, b, g, h);
             }
-            else if(Math.Abs(f) < double.Epsilon && Math.Abs(g) < double.Epsilon)
+            else if (Math.Abs(f) < double.Epsilon && Math.Abs(g) < double.Epsilon)
             {
                 return TripleRoot(a, d);
             }
@@ -55,7 +55,7 @@ namespace RootsOfEquationsCalculator.EquationsTypes
 
         private RootsValues TripleRoot(double a, double d)
         {
-            double root = - Operations.Power(d / a, Constants.ONE_THIRD_POWER);
+            double root = -Operations.Power(d / a, Constants.ONE_THIRD_POWER);
 
             return new RootsValues(Operations.Round(root));
         }
@@ -64,14 +64,14 @@ namespace RootsOfEquationsCalculator.EquationsTypes
         {
             double i = Math.Sqrt((Math.Pow(g, 2) / 4) - h);
             double j = Operations.Power(i, Constants.ONE_THIRD_POWER);
-            double k = Math.Acos(- (g / (2 * i)));
+            double k = Math.Acos(-(g / (2 * i)));
             double m = Math.Cos(k / 3);
             double n = Math.Sqrt(3) * Math.Sin(k / 3);
             double p = -b / 3 * a;
 
             List<double> roots = new List<double>();
 
-            double root1 = 2 * j * m + p; 
+            double root1 = 2 * j * m + p;
             roots.Add(Operations.Round(root1));
 
             double root2 = -j * (m + n) + p;

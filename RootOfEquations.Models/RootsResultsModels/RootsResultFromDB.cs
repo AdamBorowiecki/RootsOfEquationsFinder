@@ -19,7 +19,7 @@ namespace RootsOfEquationsCalculator.RootsResultsModels
         {
             string whenValueWasCalculated = "";
 
-            if(isCalculatedBefore)
+            if (isCalculatedBefore)
             {
                 whenValueWasCalculated += "Value is calculated before ";
             }
@@ -46,9 +46,9 @@ namespace RootsOfEquationsCalculator.RootsResultsModels
             if (obj is RootsResultFromDB)
             {
                 RootsResultFromDB other = (RootsResultFromDB)obj;
-                return 
+                return
                     isCalculatedBefore == other.isCalculatedBefore &&
-                    value ==  other.value;
+                    value == other.value;
             }
             return base.Equals(obj);
         }

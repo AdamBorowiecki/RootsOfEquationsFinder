@@ -1,6 +1,6 @@
-﻿using System;
-using RootsOfEquationsCalculator;
+﻿using RootsOfEquationsCalculator;
 using RootsOfEquationsCalculator.EquationsTypes;
+using System;
 
 namespace RootsOfEquationsConsoleApp.View
 {

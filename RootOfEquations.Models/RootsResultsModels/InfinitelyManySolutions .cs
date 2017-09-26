@@ -1,6 +1,5 @@
-﻿using System;
+﻿using RootsOfEquationsCalculator.Models;
 using System.Collections.Generic;
-using RootsOfEquationsCalculator.Models;
 
 namespace RootsOfEquationsCalculator.RootsResultsModels
 {

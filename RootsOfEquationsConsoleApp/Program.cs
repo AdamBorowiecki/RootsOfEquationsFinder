@@ -7,7 +7,7 @@ namespace RootsOfEquationsConsoleApp
 {
     public class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             WindsorContainer iocContainer = IoCConfiguration.IocContainer;
 

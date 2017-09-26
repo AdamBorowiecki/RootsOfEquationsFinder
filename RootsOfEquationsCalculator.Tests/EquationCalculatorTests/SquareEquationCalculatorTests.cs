@@ -26,15 +26,15 @@ namespace RootsOfEquationsCalculator.Tests
         public void When_DeltaIsPossitive_Expect_ThisTwoRoots(
             double root1, double root2, double a, double b, double c)
         {
-            RootsValues rootsValues = 
-                new RootsValues(new List<double>() { root1, root2});
+            RootsValues rootsValues =
+                new RootsValues(new List<double>() { root1, root2 });
             SquareEquationCalculator squareEquation = new SquareEquationCalculator();
 
             Assert.Equal(rootsValues, squareEquation.CalculateRoots(new EquationsCoefficients(a, b, c)));
         }
 
         [Theory]
-        [InlineData(- 0.5, 4, 4, 1)]
+        [InlineData(-0.5, 4, 4, 1)]
         [InlineData(-1, 2, 4, 2)]
         public void When_DeltaIsZero_Expect_OneRoot(
             double root, double a, double b, double c)

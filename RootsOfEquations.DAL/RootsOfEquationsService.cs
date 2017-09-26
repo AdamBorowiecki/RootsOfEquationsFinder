@@ -16,12 +16,14 @@ namespace RootsOfEquations.DAL
 
         public void Add(EquationsCoefficients coefficients, IRootsResult result)
         {
-            var newResult = new ResultOfRootsCalculation {
+            var newResult = new ResultOfRootsCalculation
+            {
                 XToPower3 = coefficients.XToPower3,
                 XToPower2 = coefficients.XToPower2,
                 XToPower1 = coefficients.XToPower1,
                 Constant = coefficients.Constant,
-                Result = result.ToString() };
+                Result = result.ToString()
+            };
 
             context.ResultOfRootsCalculations.Add(newResult);
             context.SaveChanges();
@@ -31,13 +33,14 @@ namespace RootsOfEquations.DAL
         {
             return context.
                 ResultOfRootsCalculations.
-                Where(r => 
-                    (r.XToPower3 ==  equationsCoefficients.XToPower3 &&
+                Where(r =>
+                    (r.XToPower3 == equationsCoefficients.XToPower3 &&
                     r.XToPower2 == equationsCoefficients.XToPower2 &&
                     r.XToPower1 == equationsCoefficients.XToPower1 &&
                     r.Constant == equationsCoefficients.Constant)).
                 Count() != 0;
         }
+
         public string ReadResult(EquationsCoefficients coefficients)
         {
             return context.ResultOfRootsCalculations
